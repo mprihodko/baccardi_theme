@@ -7,8 +7,8 @@ module.exports = function(grunt) {
         less: {
           development: {
             options: {
-                compress: true,
-                yuicompress: true,
+                compress: false,
+                yuicompress: false,
                 optimization: 2
             },
             files: {
@@ -20,7 +20,18 @@ module.exports = function(grunt) {
         concat: {
             dist: {
                 src:  'components/**/*.js', 
-                dest: 'js/custom_script.js'                   
+                dest: 'js/theme_script.js'                   
+            }
+        },
+
+        browserSync: {
+            dev: {
+                bsFiles: {
+                    src:['css/*.css', 'js/*.js', 'wp-content/themes/baccardi/*.php']
+                },
+                options: {
+                    proxy: "composer.loc"
+                }
             }
         },
 
@@ -33,7 +44,7 @@ module.exports = function(grunt) {
                 }
             },
             scripts:{ 
-                files: ['components/**/*.js'],
+                files: ['components/js/**/*.js'],
                 tasks: ['concat']            
             }
         }
@@ -43,8 +54,9 @@ module.exports = function(grunt) {
 
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-concat'); 
+    grunt.loadNpmTasks('grunt-browser-sync');
     grunt.loadNpmTasks('grunt-contrib-watch'); 
-    grunt.registerTask('default', ['less', 'concat', 'watch']);
+    grunt.registerTask('default', ['less', 'concat', 'browserSync', 'watch']);
 
 
 };
