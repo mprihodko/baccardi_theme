@@ -4,40 +4,48 @@
  *
  * Contains the closing of the #content div and all content after
  *
- * @package understrap
+ * @package Bacardi theme 
  */
+global $bacardi;
 ?>
+                </div><!-- #primary --> 
 
-<?php //get_sidebar('footerfull'); ?>
+                <?php if ( is_active_sidebar( 'sidebar' ) ) : ?>
+                    <div class="col-lg-4 col-md-4 col-sm-hidden col-xs-hidden">
+                        <?php get_sidebar('sidebar-main'); ?>
+                    </div>
+                <?php endif; ?> 
+            </div><!-- .row -->
+               
+        </div><!-- Container end -->
 
-<div class="wrapper" id="wrapper-footer">
-    
-    <div class="container">
+    </div><!-- Wrapper end -->
 
-        <div class="row">
-
-            <div class="col-md-12">
-    
-                <footer id="colophon" class="site-footer" role="contentinfo">
-
-                    <div class="site-info">
-                        <a href="<?php echo esc_url( __( 'http://wordpress.org/', 'understrap' ) ); ?>"><?php printf( __( 'Proudly powered by %s', 'understrap' ), 'WordPress' ); ?></a>
-                        <span class="sep"> | </span>
-                        <?php printf( __( 'Theme: %1$s by %2$s.', 'understrap' ), 'understrap', '<a href="http://understrap.com/" rel="designer">understrap.com</a>' ); ?> 
-                        (<?php printf( __( 'Version', 'understrap' ) ); ?>: 0.4.6)
-                    </div><!-- .site-info -->
-
-                </footer><!-- #colophon -->
-
-            </div><!--col end -->
-
-        </div><!-- row end -->
+    <div class="wrapper" id="wrapper-footer">
         
-    </div><!-- container end -->
-    
-</div><!-- wrapper end -->
+        <div class="container">
 
-</div><!-- #page -->
+            <div class="row">
+
+                <div class="col-md-12">
+        
+                    <footer id="colophon" class="site-footer" role="contentinfo">
+
+                       
+
+                    </footer><!-- #colophon -->
+
+                </div><!--col end -->
+
+            </div><!-- row end -->
+            
+        </div><!-- container end -->
+        
+        <div class="copyright"><?=$bacardi['copyright_footer']?></div>
+        
+    </div><!-- wrapper end -->
+
+
 
 <?php wp_footer(); ?>
 

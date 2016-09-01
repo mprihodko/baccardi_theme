@@ -10,19 +10,15 @@
  * @link http://codex.wordpress.org/Template_Hierarchy
  *
  * @package WordPress
- * @subpackage Baccardi theme
- * @since Baccardi theme 1.0
+ * @subpackage Bacardi theme
+ * @since Bacardi theme 1.0
  */
 
 get_header(); ?>
 
-    <div class="wrapper" id="wrapper-index">
-        
-	   <div id="content" class="container">
-
-            <div class="row">
+ 
            
-    	       <div id="primary" class="<?php if ( is_active_sidebar( 'sidebar-1' ) ) : ?>col-md-8<?php else : ?>col-md-12<?php endif; ?> content-area">
+    	       
                    
                      <main id="main" class="site-main" role="main">
                     
@@ -52,12 +48,8 @@ get_header(); ?>
                         
                     </main><!-- #main -->
                    
-    	       </div><!-- #primary -->  
+    	      
+                
 
-            </div><!-- .row -->
-           
-       </div><!-- Container end -->
-        
-    </div><!-- Wrapper end -->
-
+            
 <?php get_footer(); ?>

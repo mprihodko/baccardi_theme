@@ -4,20 +4,20 @@
  *
  *
  * @package WordPress
- * @subpackage Baccardi theme
- * @since Baccardi theme 1.0
+ * @subpackage Bacardi theme
+ * @since Bacardi theme 1.0
  */
 
-if(!function_exists('baccardi_theme_setup')):
+if(!function_exists('bacardi_theme_setup')):
 
-	function baccardi_theme_setup() {
+	function bacardi_theme_setup() {
 		/*
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
 		 * If you're building a theme based on Twenty Sixteen, use a find and replace
-		 * to change 'baccardi-theme' to the name of your theme in all the template files
+		 * to change 'bacardi-theme' to the name of your theme in all the template files
 		 */
-		load_theme_textdomain( 'baccardi-theme', get_template_directory() . '/languages' );
+		load_theme_textdomain( 'bacardi', get_template_directory() . '/languages' );
 
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
@@ -40,8 +40,8 @@ if(!function_exists('baccardi_theme_setup')):
 
 		// This theme uses wp_nav_menu() in two locations.
 		register_nav_menus( array(
-			'primary' => __( 'Primary Menu', 'baccardi-theme' ),
-			'social'  => __( 'Social Links Menu', 'baccardi-theme' ),
+			'primary' => __( 'Primary Menu', 'bacardi-theme' ),
+			'social'  => __( 'Social Links Menu', 'bacardi-theme' ),
 		) );
 
 		/*
@@ -74,9 +74,9 @@ if(!function_exists('baccardi_theme_setup')):
 		) );	
 	}
 
-	add_action( 'after_setup_theme', 'baccardi_theme_setup' );
+	add_action( 'after_setup_theme', 'bacardi_theme_setup' );
 
-endif; // baccardi_theme_setup
+endif; // bacardi_theme_setup
 
 
 if(!function_exists('register_bc_widgets')):
@@ -84,8 +84,8 @@ if(!function_exists('register_bc_widgets')):
 	function register_bc_widgets(){
 
 		register_sidebar( array(
-			'name'          => 'footerfull',
-			'id'            => 'footerfull',
+			'name'          => 'sidebar',
+			'id'            => 'sidebar',
 			'description'   => '',
 			'class'         => '',
 			'before_widget' => '<li id="%1$s" class="widget %2$s">',
@@ -97,4 +97,4 @@ if(!function_exists('register_bc_widgets')):
 
 	add_action( 'widgets_init', 'register_bc_widgets' );
 
-endif; // baccardi_theme_widgets
+endif; // bacardi_theme_widgets

@@ -1,10 +1,10 @@
 <?php
 /**
- * Template for displaying search forms in Twenty Sixteen
+ * Template for displaying search forms in Bacardi theme
  *
  * @package WordPress
- * @subpackage Twenty_Sixteen
- * @since Twenty Sixteen 1.0
+ * @subpackage Bacardi theme
+ * @since Bacardi theme 1.0
  */
 ?>
 

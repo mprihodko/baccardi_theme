@@ -5,10 +5,11 @@
  * Displays all of the head element and everything up until the "site-content" div.
  *
  * @package WordPress
- * @subpackage Baccardi theme
- * @since Baccardi theme 1.0
+ * @subpackage Bacardi theme
+ * @since Bacardi theme 1.0
  */
 
+global $bacardi;
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -24,42 +25,44 @@
 </head>
 
 <body <?php body_class(); ?>>
-<header id="bc_header">
-    
-    <!-- ******************* The Navbar Area ******************* -->
-    <div class="nav-top">
-        <div class="container">
-            <nav class="navbar ">
-			  	<div class="container-fluid">
-			    <!-- Brand and toggle get grouped for better mobile display -->
-			    	<div class="navbar-header">
-				      	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#primary-menu" aria-expanded="false">
-					        <span class="sr-only">Toggle navigation</span>
-					        <span class="icon-bar"></span>
-					        <span class="icon-bar"></span>
-					        <span class="icon-bar"></span>
-				      	</button>
-				     	<a class="navbar-brand logo" style="background-image: url(<?=get_template_directory_uri()?>/bacardi-logo.png)" href="<?=home_url()?>">
-				     	 
-				     	</a>
-				    </div>
+	<header id="bc_header">
+	    
+	    <!-- ******************* The Navbar Area ******************* -->
+	   <div class="nav-bottom">
+	        <div class="container">
+	            <nav class="navbar" role="navigation">
+				  
+				    <!-- Brand and toggle get grouped for better mobile display -->
+				    	<div class="navbar-header">
+					      	<a class="navbar-brand logo" style="background-image: url('<?=$bacardi['header_logo']['url']?>')" href="<?=home_url()?>"></a>
+			                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#primary-menu" aria-expanded="false">		                     
+			                    <i class="fa fa-times" aria-hidden="true"></i>
+			                </button>				      
+					    </div>
 
-				    <!-- Collect the nav links, forms, and other content for toggling -->
-				    <div class="collapse navbar-collapse" id="primary-menu">
-				      <?php wp_nav_menu(
-			                            array(
-			                                'theme_location' => 'primary',
-			                                'menu_class' => 'cat-menu nav navbar-nav',
-			                                'fallback_cb' => '',
-			                                'desc_depth' => 1,				                                
-			                                // 'walker' => new fastpaleo_walker()
-			                            )
-				                       ); ?>
-				    </div><!-- /.navbar-collapse -->
-			  	</div><!-- /.container-fluid -->
-			</nav>
-                       
-        </div>
-    </div>
-   
-</header>
+					    <!-- Collect the nav links, forms, and other content for toggling -->
+					    <div class="collapse navbar-collapse pull-right" id="primary-menu">
+					      <?php wp_nav_menu(
+				                            array(
+				                                'theme_location' => 'primary',
+				                                'menu_class' => 'cat-menu nav navbar-nav',
+				                                'fallback_cb' => '',
+				                                'desc_depth' => 1,				                                
+				                                // 'walker' => new fastpaleo_walker()
+				                            )
+					                       ); ?>
+					    </div><!-- /.navbar-collapse -->
+				  
+				</nav>
+	                       
+	        </div>
+	    </div>
+	   
+	</header>
+	<div class="wrapper" id="wrapper-index">
+	        
+		<div id="content" class="container">
+
+	        <div class="row">
+
+	        	 <div id="primary" class="<?php if ( is_active_sidebar( 'sidebar' ) ) : ?>col-md-8<?php else : ?>col-md-12<?php endif; ?> content-area">

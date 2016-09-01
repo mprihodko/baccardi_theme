@@ -1,15 +1,329 @@
 #bc_header{
 
 	min-height: 80px;
-
-	.navbar{
-
-		.logo{
-			display: block;
-		    width: 300px;
-		    background-size: cover;
-		    background-repeat: no-repeat;
-		    background-position: center center;
+	.container{
+		@media screen and (max-width: 768px){
+			padding: 0;
+			margin: 0;
+			width: 100%;
 		}
+	}
+	.navbar{		
+		margin: 0 auto;
+		padding: 0;		
+		box-sizing: border-box;
+    	border: none;
+		position: relative;
+		font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+		.nav {
+
+			@media screen and (max-width: 768px){
+				margin-top: @menuItemPaddingY*2;
+			}
+
+			& > li{
+
+				display: inline-block;
+				width: auto;
+				position: static;
+
+				@media screen and (max-width: 768px){
+					display: block;
+					width: 50%;
+					position: relative;		
+					& > a{
+						font-weight: bold;
+						font-size: 18px;
+					}			
+				}
+
+				&.menu-item-has-children{
+					& > a{
+						cursor: pointer;
+						padding-right: @menuItemPaddingX;
+						&:after{
+							content: " \f107";
+							font-family: FontAwesome;
+						    font-style: normal;
+						    font-weight: normal;
+						    text-decoration: inherit;
+						    color: @defaultText;
+						}
+					}
+				}
+				@media screen and (max-width: 768px){
+
+					&:nth-child(odd){
+						float: left;
+					}
+					&:nth-child(even){
+						float: right;
+					}
+					&.menu-item-has-children{
+						& > a{
+							cursor: pointer;
+							padding-left:0;
+							&:after{
+								content: "";								
+							}
+						}
+						ul{
+							display: block;
+							padding-left: @menuItemPaddingX;
+							li{
+								a{
+									cursor: pointer;									
+									&:after{
+										content: "";								
+									}
+								}
+							}
+						}
+					}
+
+				}
+
+				& > a{
+					cursor: pointer;
+					font-size: 18px;
+					text-transform: uppercase;
+					font-weight: bold;
+				    color: @defaultText;
+				    text-decoration: none;
+				    padding: @menuItemPaddingY  @menuItemPaddingX;
+				    margin: 0;
+				    font-weight: bold;
+				    font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;	
+				}
+				& > a:focus,
+				& > a:hover{
+					background: transparent;		
+					text-decoration: none;
+					color: #fff;
+					&:after{
+						color: #fff;
+					}
+				}
+
+				ul{
+					display: none;
+					list-style: none;
+					padding: 0;
+					margin: 0;
+
+					& > li.menu-item-has-children{
+						& > a{
+							cursor: pointer;
+							padding-right: @menuItemPaddingX;
+							&:after{
+								content: " \f105";
+								font-family: FontAwesome;
+							    font-style: normal;
+							    font-weight: normal;
+							    text-decoration: inherit;
+							    color: #fff;	
+							    left: @menuItemPaddingX;
+    							position: relative;						    
+							}
+						 
+							&:hover{
+								&:after{
+						    		color: @defaultHover;
+						    	}
+						    }
+						}
+					}
+
+					@media screen and (max-width: 768px){
+
+						& > li.menu-item-has-children{
+							& > a{
+								cursor: pointer;
+								padding-right: @menuItemPaddingX;
+								&:after{
+									content: none;											    
+								}						 
+								 
+							}
+						}
+
+					}
+					@media screen and (min-width: 768px){
+						li{
+							display: block;
+					    	float: none;
+					    	width: auto;
+					   	
+					    	&:hover{
+					    		ul{
+									position: absolute;
+								    top: 0;
+								    left: 0;
+								    right: 0;
+								    margin-top: 30px;
+								    margin-left: 25%;
+								    display: table;
+								    width: 75%;
+
+								    & > li{
+								    	display: inline-block;
+									    vertical-align: top;
+									    padding: 0 10px;
+									    width: 33%;
+								    }
+
+								    &:after{							    		  
+									    content: none;								    
+								    }
+					    		}
+					    	}
+				    	}
+					}
+				}
+			 
+				&:hover{
+					@media screen and (min-width: 768px){
+						background: @blackOverlay;
+						& > a{
+							cursor: pointer;
+							color: #fff;
+							&:after{
+								color: #fff;
+							}
+						}					
+						& > ul{
+							position: absolute;					 
+							display: inline;
+						    padding: @menuItemPaddingY 0 @yPadding*2 0;
+						    position: absolute;
+						    left: 0;
+						    right: 0;
+						    z-index: 10;
+
+						    & > li{
+						    	display: block;
+						    	float: none;
+						    	width: auto;
+						    }
+
+						    &:after{
+						    	position: absolute;
+							    width: 7000px;
+							    background-color: @blackOverlay;		  
+							    content: "";
+							    top: 0;
+							    bottom: 0;
+							    left: -1000px;
+							    z-index: -1;
+						    }
+
+						    a{
+						    	cursor: pointer;
+						    	color: #fff;
+						    	font-size: 15px;
+						    	text-decoration: none;
+						    	 
+						    	&:hover{
+						    		color: @defaultHover;
+						    	}
+						    }
+						
+						}
+					}
+					@media screen and (max-width: 768px){
+						background: transparent;
+
+					}
+				}
+
+
+				@media screen and (max-width: 768px){
+
+					& > a{
+
+						font-size: 12px;
+						text-transform: uppercase;
+						font-weight: bold;
+					    color: @defaultText;
+					    text-decoration: none;
+					    padding: 0;
+					    margin: 0;
+					    color: #fff;
+					    font-weight: bold;
+					    font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif
+
+					}
+
+					a{
+						color: #fff;	
+						font-size: 12px;
+						margin: @yPadding*0.9 @yPadding 0 @yPadding;
+					 
+						&:hover{
+							background: transparent;
+							text-decoration: underline;
+							color: @defaultHover;
+							&:after{
+								color: @defaultHover;
+							}
+						}
+					}
+
+				}
+
+			}
+
+		}
+		.navbar-toggle{
+			z-index: 100;
+			margin: @yPadding 0;
+			padding: 6.5px @xPadding;
+			i{
+				color: #fff;
+			}
+			 
+			&:hover{
+				i{
+					color: @defaultHover;					
+				}
+			}
+			&.collapsed{
+
+				i{
+					color: @defaultText;					
+					&:before{
+						content: "\f0c9";
+					}
+				}
+
+			}
+		}
+		
+
+		@media screen and (max-width: 768px){
+			.navbar-collapse{
+				position: absolute;
+			    width: auto;
+			    top: 0;
+			    left: 0;
+			    right: 0;
+			    background: @blackOverlay;			 
+			}
+		}
+		.logo{
+			background-repeat: no-repeat;
+		    background-position: center center;
+		    background-size: 100% auto;
+		    display: block;
+		    width: 170px;
+		    height: 35px;
+		    text-indent: -9999em;
+		    float: left;
+		    padding: 0;
+		    margin:@yPadding;			
+		}
+
+
 	}
 }

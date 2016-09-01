@@ -12,13 +12,13 @@
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
  * @package WordPress
- * @subpackage Twenty_Sixteen
- * @since Twenty Sixteen 1.0
+ * @subpackage Bacardi theme
+ * @since Bacardi theme 1.0
  */
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
+	
 		<main id="main" class="site-main" role="main">
 
 		<?php if ( have_posts() ) : ?>
@@ -46,9 +46,9 @@ get_header(); ?>
 
 			// Previous/next page navigation.
 			the_posts_pagination( array(
-				'prev_text'          => __( 'Previous page', 'twentysixteen' ),
-				'next_text'          => __( 'Next page', 'twentysixteen' ),
-				'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'twentysixteen' ) . ' </span>',
+				'prev_text'          => __( 'Previous page', 'bacardi' ),
+				'next_text'          => __( 'Next page', 'bacardi' ),
+				'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'bacardi' ) . ' </span>',
 			) );
 
 		// If no content, include the "No posts found" template.
@@ -59,7 +59,7 @@ get_header(); ?>
 		?>
 
 		</main><!-- .site-main -->
-	</div><!-- .content-area -->
 
-<?php get_sidebar(); ?>
+
+
 <?php get_footer(); ?>

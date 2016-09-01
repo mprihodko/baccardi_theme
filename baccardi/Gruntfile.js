@@ -27,10 +27,10 @@ module.exports = function(grunt) {
         browserSync: {
             dev: {
                 bsFiles: {
-                    src:['css/*.css', 'js/*.js', 'wp-content/themes/baccardi/*.php']
+                    src:['css/*.css', 'js/*.js', 'wp-content/themes/bacardi/*.php']
                 },
                 options: {
-                    proxy: "composer.loc"
+                    proxy: "mingo.loc"
                 }
             }
         },
