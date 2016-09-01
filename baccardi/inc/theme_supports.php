@@ -84,8 +84,8 @@ if(!function_exists('register_bc_widgets')):
 	function register_bc_widgets(){
 
 		register_sidebar( array(
-			'name'          => 'sidebar',
-			'id'            => 'sidebar',
+			'name'          => 'sidebar-bacardi',
+			'id'            => 'sidebar-bacardi',
 			'description'   => '',
 			'class'         => '',
 			'before_widget' => '<li id="%1$s" class="widget %2$s">',

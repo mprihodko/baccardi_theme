@@ -68,6 +68,38 @@ if(!function_exists('bc_admin_options_script')){
 	add_action("admin_print_scripts-toplevel_page_theme_options", 'bc_admin_options_script');
 }
 
+
+if(!function_exists('bc_define_footer_widget_class')){
+
+	function bc_define_footer_widget_class($count=0){
+
+		switch ($count) {
+			case '0':
+				$class = 'col-md-12 col-sm-12 col-xs-12';
+				break;
+			case '1':
+				$class = 'col-md-12 col-sm-12 col-xs-12';
+				break;
+			case '2':
+				$class = 'col-md-6 col-sm-6 col-xs-12';
+				break;
+			case '3':
+				$class = 'col-md-4 col-sm-4 col-xs-12';
+				break;
+			case '4':
+				$class = 'col-md-3 col-sm-3 col-xs-12';
+				break;
+			default:
+				$class = 'col-md-12 col-sm-12 col-xs-12';
+				break;
+		}
+
+		return $class;
+
+	}
+
+}
+
 ini_set('error_reporting', E_ALL);
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);

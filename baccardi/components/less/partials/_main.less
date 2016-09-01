@@ -1,18 +1,30 @@
+@font-face {
+  .font(@fontRegular);
+}
+@font-face {
+  .font(@fontRegular; @fontBold; bold);
+}
+
 body {
 	background-color: #fff;
 	font-family: @fontRegular;
-}
 
-#sidebar{
-	display: block;
-	width: 100%;
-	padding: 0;
-	margin: 0;
-	list-style: none;
-	li {
-		display: block;
-		padding: 0;
-		margin: 0;
+	#wrapper-index{
+		padding-top: @contentPaddingY;
+		padding-bottom: @contentPaddingY;
 	}
 
+	#sidebar{
+		display: block;
+		width: 100%;
+		padding: 0;
+		margin: 0;
+		list-style: none;
+		li {
+			display: block;
+			padding: 0;
+			margin: 0;
+		}
+
+	}
 }

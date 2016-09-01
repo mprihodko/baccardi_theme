@@ -10,6 +10,7 @@
  */
 
 global $bacardi;
+$logo = (isset($bacardi['header_logo']['url'])? $bacardi['header_logo']['url'] : '');
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -34,7 +35,7 @@ global $bacardi;
 				  
 				    <!-- Brand and toggle get grouped for better mobile display -->
 				    	<div class="navbar-header">
-					      	<a class="navbar-brand logo" style="background-image: url('<?=$bacardi['header_logo']['url']?>')" href="<?=home_url()?>"></a>
+					      	<a class="navbar-brand logo" style="background-image: url('<?=$logo?>'); <?=($logo)? 'text-indent: -9999em;' : ''?>" href="<?=home_url()?>">Bacardi</a>
 			                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#primary-menu" aria-expanded="false">		                     
 			                    <i class="fa fa-times" aria-hidden="true"></i>
 			                </button>				      
@@ -65,4 +66,4 @@ global $bacardi;
 
 	        <div class="row">
 
-	        	 <div id="primary" class="<?php if ( is_active_sidebar( 'sidebar' ) ) : ?>col-md-8<?php else : ?>col-md-12<?php endif; ?> content-area">
+	        	 <div id="primary" class="<?php if ( is_active_sidebar( 'sidebar-bacardi' ) ) : ?>col-md-9<?php else : ?>col-md-12<?php endif; ?> content-area">

@@ -30,7 +30,7 @@ module.exports = function(grunt) {
                     src:['css/*.css', 'js/*.js', 'wp-content/themes/bacardi/*.php']
                 },
                 options: {
-                    proxy: "mingo.loc"
+                    proxy: "composer.loc"
                 }
             }
         },

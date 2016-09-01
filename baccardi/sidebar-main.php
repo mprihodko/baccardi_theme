@@ -9,5 +9,5 @@
 ?>
 
 <ul id="sidebar">
-	<?php dynamic_sidebar( 'sidebar' ); ?>
+	<?php dynamic_sidebar( 'sidebar-bacardi' ); ?>
 </ul>
