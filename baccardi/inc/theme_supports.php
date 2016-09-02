@@ -42,6 +42,7 @@ if(!function_exists('bacardi_theme_setup')):
 		register_nav_menus( array(
 			'primary' => __( 'Primary Menu', 'bacardi-theme' ),
 			'social'  => __( 'Social Links Menu', 'bacardi-theme' ),
+			'footer'  => __( 'Footer Menu', 'bacardi-theme' ),
 		) );
 
 		/*
@@ -86,6 +87,50 @@ if(!function_exists('register_bc_widgets')):
 		register_sidebar( array(
 			'name'          => 'sidebar-bacardi',
 			'id'            => 'sidebar-bacardi',
+			'description'   => '',
+			'class'         => '',
+			'before_widget' => '<li id="%1$s" class="widget %2$s">',
+			'after_widget'  => "</li>\n",
+			'before_title'  => '<h2 class="widgettitle">',
+			'after_title'   => "</h2>\n",
+		) );
+
+		register_sidebar( array(
+			'name'          => 'footer-widget-1',
+			'id'            => 'footer-widget-1',
+			'description'   => '',
+			'class'         => '',
+			'before_widget' => '<li id="%1$s" class="widget %2$s">',
+			'after_widget'  => "</li>\n",
+			'before_title'  => '<h2 class="widgettitle">',
+			'after_title'   => "</h2>\n",
+		) );
+
+		register_sidebar( array(
+			'name'          => 'footer-widget-2',
+			'id'            => 'footer-widget-2',
+			'description'   => '',
+			'class'         => '',
+			'before_widget' => '<li id="%1$s" class="widget %2$s">',
+			'after_widget'  => "</li>\n",
+			'before_title'  => '<h2 class="widgettitle">',
+			'after_title'   => "</h2>\n",
+		) );
+
+		register_sidebar( array(
+			'name'          => 'footer-widget-3',
+			'id'            => 'footer-widget-3',
+			'description'   => '',
+			'class'         => '',
+			'before_widget' => '<li id="%1$s" class="widget %2$s">',
+			'after_widget'  => "</li>\n",
+			'before_title'  => '<h2 class="widgettitle">',
+			'after_title'   => "</h2>\n",
+		) );
+
+		register_sidebar( array(
+			'name'          => 'footer-widget-4',
+			'id'            => 'footer-widget-4',
 			'description'   => '',
 			'class'         => '',
 			'before_widget' => '<li id="%1$s" class="widget %2$s">',

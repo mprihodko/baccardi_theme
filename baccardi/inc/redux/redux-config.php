@@ -112,6 +112,13 @@ if ( ! class_exists( 'Redux_Framework_Lwp_config' ) ) {
 
 			/* Set fields */
 			$footer_fields = array(
+    			array(
+					'id'       => 'display_footer_logo',
+				    'type'     => 'switch', 
+				    'title'    => __('Logo On', 'bacardi'),				    
+    				'default'  => true
+    			),
+    			
 				array(
 					'id'       => 'copyright_footer',
 				    'type'     => 'editor', 
@@ -122,27 +129,6 @@ if ( ! class_exists( 'Redux_Framework_Lwp_config' ) ) {
 						        'textarea_rows'    => 10
 					    	)			
     			),
-    			array(
-					'id' 			=> 'footer_widget_items',
-					'accordion' 	=> true,
-					'type'        	=> 'repeatable_list',
-					'title'       	=> 'Footer Widget Items',					 
-					'add_button' 	=> __( '+'),
-					'remove_button' => __( '&times;'),
-					'max'			=>4,					
-					'fields' => array(	
-						array(
-							'id'		=> 'footer_widget_item',
-							'type'      => 'editor', 
-							'title' 	=> 'List Item Text',
-							'rows'	    => 6,
-						    'args'   	=> array(
-						        'teeny'            => 1,
-						        'textarea_rows'    => 10
-					    	)			
-						)
-					)
-				)
 			);
 
 			/* Set sections */

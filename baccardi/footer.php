@@ -7,6 +7,7 @@
  * @package Bacardi theme 
  */
 global $bacardi;
+$widgets = bc_check_enabled_footer_widgets(); 
 ?>
                 </div><!-- #primary --> 
 
@@ -31,14 +32,33 @@ global $bacardi;
         
                     <footer id="colophon" class="site-footer" role="contentinfo">
 
-                    <?php if (isset($bacardi['footer_widget_items']) && count($bacardi['footer_widget_items'])>0): ?>
-                        <?php $class = bc_define_footer_widget_class(count($bacardi['footer_widget_items'])); ?>
-                            <?php foreach ($bacardi['footer_widget_items'] as $widget): ?>
-                                <div class="<?=$class?>">
-                                    <?php echo $widget['footer_widget_item']; ?>
+                    <?php if (isset($bacardi['header_logo']['url']) && count($bacardi['display_footer_logo'])>0): ?>
+                        
+                        <div class="col-md-12 col-sm-12 col-xs-12 text-center footer-logo">
+                            <img src="<?=$bacardi['header_logo']['url']?>" alt="<?=bloginfo('name');?>">
+                        </div>
+
+                    <?php endif; ?> 
+                     
+                    <?php if(is_array($widgets)) : ?> 
+                        <div class="row widgets-bar">
+                            <?php $class = bc_define_footer_widget_class(count($widgets)); ?>
+
+                            <?php foreach($widgets as $widget): ?>
+                               
+                                <div class="<?=$class?> text-center">
+
+                                    <ul id="<?=$widget?>" class="footer-widget">
+                                        <?php dynamic_sidebar( $widget ); ?>
+                                    </ul>
+
                                 </div>
+
                             <?php endforeach; ?>
+                        </div>
                     <?php endif; ?>
+        
+               
                        
 
                     </footer><!-- #colophon -->

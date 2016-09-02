@@ -9247,6 +9247,48 @@ body #sidebar li {
 #wrapper-footer {
   background: #000;
 }
+#wrapper-footer #colophon .footer-logo {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  max-width: 100%;
+}
+#wrapper-footer #colophon .footer-logo img {
+  max-width: 100%;
+}
+#wrapper-footer #colophon ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+#wrapper-footer #colophon .widgets-bar {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  color: #fff;
+}
+#wrapper-footer #colophon .widgets-bar h1,
+#wrapper-footer #colophon .widgets-bar h2,
+#wrapper-footer #colophon .widgets-bar h3,
+#wrapper-footer #colophon .widgets-bar h4,
+#wrapper-footer #colophon .widgets-bar h5,
+#wrapper-footer #colophon .widgets-bar h6 {
+  color: #fff;
+  text-transform: uppercase;
+}
+#wrapper-footer #colophon .widgets-bar input[type="search"],
+#wrapper-footer #colophon .widgets-bar input[type='text'] {
+  max-width: 80%;
+  margin: 0 auto;
+  display: block;
+}
+#wrapper-footer #colophon .widgets-bar a {
+  color: #3baa9e;
+}
+#wrapper-footer #colophon .widgets-bar ul.footer-widget {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
 #wrapper-footer .copyright {
   background: #333;
   color: #fff;

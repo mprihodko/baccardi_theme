@@ -68,11 +68,28 @@ if(!function_exists('bc_admin_options_script')){
 	add_action("admin_print_scripts-toplevel_page_theme_options", 'bc_admin_options_script');
 }
 
+if(!function_exists('bc_check_enabled_footer_widgets')){
+
+	function bc_check_enabled_footer_widgets(){
+		$widgets = array(); 
+		if(is_dynamic_sidebar('footer-widget-1'))
+			$widgets[]='footer-widget-1';
+		if(is_dynamic_sidebar('footer-widget-2'))
+			$widgets[]='footer-widget-2';
+		if(is_dynamic_sidebar('footer-widget-3'))
+			$widgets[]='footer-widget-3';
+		if(is_dynamic_sidebar('footer-widget-4'))
+			$widgets[]='footer-widget-4';
+		return $widgets;
+	}
+
+}
+
 
 if(!function_exists('bc_define_footer_widget_class')){
 
 	function bc_define_footer_widget_class($count=0){
-
+		
 		switch ($count) {
 			case '0':
 				$class = 'col-md-12 col-sm-12 col-xs-12';
