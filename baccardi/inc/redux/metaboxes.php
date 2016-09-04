@@ -13,14 +13,15 @@ if ( !function_exists( "redux_add_metaboxes" ) ):
 	$page_options = array();
 
 	$metaSection = array(
-		'title' => 'Page meta',
+		'title' => 'Enable Sidebar',
 		'icon_class'    => 'icon-large',
 		'icon'          => 'el-icon-list-alt',
 		'fields' => array(
 			array(
-				'id'     => 'meta',
-				'type'   => 'text',
-				'title'  => __( 'Metafield')
+				'id'       => 'enable_sidebar',
+			    'type'     => 'switch', 
+			    'title'    => __('Enable Sidebar', 'bacardi'),				    
+				'default'  => true
 			),
 		)
 	);
@@ -31,12 +32,41 @@ if ( !function_exists( "redux_add_metaboxes" ) ):
 		'id'            => 'page-options',
 		'title'         => __( 'Page options', THEME_OPT ),
 		'post_types'    => array( 'page' ),
-		// 'page_template' => array('template-home.php'),
-		'position'      => 'normal', // normal, advanced, side
-		'priority'      => 'high', // high, core, default, low
-		'sidebar'       => false, // enable/disable the sidebar in the normal/advanced positions
+		'position'      => 'normal', 
+		'priority'      => 'high', 
+		'sidebar'       => 0,  
 		'sections'      => $page_options,
 	);
+
+	$post_options = array();
+
+	$metaSection = array(
+		'title' => 'Related Posts',
+		'icon_class'    => 'icon-large',
+		'icon'          => 'el-icon-list-alt',
+		'fields' => array(
+			array(
+				'id'	=> 'related_posts',
+				'type'	=> 'select_ajax',
+				'data'	=> ('page'),
+				'multi'	=> true,
+				'title'	=> 'Related Posts'
+			)		
+		)
+	);
+
+	$post_options[] = $metaSection;
+
+	$metaboxes[] = array(
+		'id'            => 'post-options',
+		'title'         => __( 'Related Posts', THEME_OPT ),
+		'post_types'    => array( 'post' ),
+		'position'      => 'normal', 
+		'priority'      => 'high', 
+		'sidebar'       => 0,  
+		'sections'      => $post_options,
+	);
+
 
 	return $metaboxes;
   }

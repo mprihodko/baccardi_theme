@@ -10,5 +10,8 @@
 	if (file_exists( dirname( __FILE__ ) . '/redux-config.php' ) ) {
 	    require_once( dirname( __FILE__ ) . '/redux-config.php' );
 	}
+	if (file_exists( dirname( __FILE__ ) . '/custom-field-type.php' ) ) {
+	    require_once( dirname( __FILE__ ) . '/custom-field-type.php' );
+	}
 
 ?>

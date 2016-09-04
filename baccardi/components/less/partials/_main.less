@@ -10,8 +10,48 @@ body {
 	font-family: @fontRegular;
 
 	#wrapper-index{
-		padding-top: @contentPaddingY;
-		padding-bottom: @contentPaddingY;
+		.entry-header{
+			min-height: 150px;
+			text-align: center;
+			position: relative;
+			box-shadow: 0 0px 1px rgba(0, 0, 0, 0.3);
+			h1{
+				position: absolute;
+			    text-align: center;
+			    color: @defaultText;
+			    bottom: 0;
+			    left: 0;
+			    width: 100%;
+			    clear: both;
+			    font-size: 4.5rem;
+			    font-weight: bolder;
+    			color: #fff;
+    			text-shadow: 4px 4px 4px rgba(0,0,0,0.5);
+			}
+			&:before{
+			    content: "";
+			    position: absolute;
+			    bottom: 0;
+			    left: 0;
+			    right: 0;
+			    height: 150px;
+			    background-image: -moz-linear-gradient(90deg,black 0,transparent 100%);
+			    background-image: -webkit-linear-gradient(90deg,black 0,transparent 100%);
+			    background-image: -ms-linear-gradient(90deg,black 0,transparent 100%);
+			    opacity: .8;
+			}
+			&.image{
+				min-height: 300px;
+				background-position: center center;
+			    background-size: cover;
+			    position: relative;
+				&:before{
+					z-index: -1;
+				}
+			}
+		}
+		// padding-top: @contentPaddingY;
+		// padding-bottom: @contentPaddingY;
 	}
 
 	#sidebar{

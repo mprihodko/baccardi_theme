@@ -118,7 +118,7 @@ if ( ! class_exists( 'Redux_Framework_Lwp_config' ) ) {
 				    'title'    => __('Logo On', 'bacardi'),				    
     				'default'  => true
     			),
-    			
+    			    			
 				array(
 					'id'       => 'copyright_footer',
 				    'type'     => 'editor', 

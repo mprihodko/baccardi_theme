@@ -11,7 +11,7 @@ $widgets = bc_check_enabled_footer_widgets();
 ?>
                 </div><!-- #primary --> 
 
-                <?php if ( is_active_sidebar( 'sidebar-bacardi' ) ) : ?>
+                <?php if ( is_active_sidebar( 'sidebar-bacardi' ) && $bacardi['enable_sidebar']) : ?>
                     <div class="col-md-3 col-sm-hidden col-xs-hidden">
                         <?php get_sidebar('main'); ?>
                     </div>
@@ -32,7 +32,7 @@ $widgets = bc_check_enabled_footer_widgets();
         
                     <footer id="colophon" class="site-footer" role="contentinfo">
 
-                    <?php if (isset($bacardi['header_logo']['url']) && count($bacardi['display_footer_logo'])>0): ?>
+                    <?php if (isset($bacardi['header_logo']['url']) && isset($bacardi['display_footer_logo'])): ?>
                         
                         <div class="col-md-12 col-sm-12 col-xs-12 text-center footer-logo">
                             <img src="<?=$bacardi['header_logo']['url']?>" alt="<?=bloginfo('name');?>">
