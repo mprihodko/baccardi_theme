@@ -51,7 +51,7 @@ $logo = (isset($bacardi['header_logo']['url'])? $bacardi['header_logo']['url'] :
 				                                'desc_depth' => 1,				                                
 				                                // 'walker' => new fastpaleo_walker()
 				                            )
-					                       ); ?>
+					                    ); ?>
 					    </div><!-- /.navbar-collapse -->
 				  
 				</nav>
@@ -60,7 +60,7 @@ $logo = (isset($bacardi['header_logo']['url'])? $bacardi['header_logo']['url'] :
 	    </div>
 	   
 	</header>
-	<div class="wrapper" id="wrapper-index">
+	<div class="wrapper" id="wrapper-index">		
 	    <?php get_template_part( 'loop-templates/single-title' ); ?>  
 		<div id="content" class="container-fluid">
 

@@ -30,6 +30,8 @@ function bc_load_scripts(){
 	wp_deregister_script("select2-js");
 
 	wp_register_script('bc-bootstrap', get_template_directory_uri().'/js/lib/bootstrap.min.js', array('jquery'), time(), true);
+	wp_register_script('bc-theme-script', get_template_directory_uri().'/js/theme_script.js', array('jquery'), time(), true);
+	wp_enqueue_script('bc-theme-script');
 	wp_enqueue_script('bc-bootstrap');
 	
 	wp_enqueue_style('style', get_template_directory_uri().'/css/style.min.css', array(), time(), false);

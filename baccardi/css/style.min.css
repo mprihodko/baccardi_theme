@@ -8952,6 +8952,7 @@ button.close {
 body {
   background-color: #fff;
   font-family: 'Lato-Light';
+  overflow-x: hidden;
 }
 body #wrapper-index .entry-header {
   min-height: 150px;
@@ -8970,7 +8971,20 @@ body #wrapper-index .entry-header h1 {
   font-size: 4.5rem;
   font-weight: bolder;
   color: #fff;
+  margin: 0;
+  z-index: 10;
+  padding-top: 20px;
+  padding-bottom: 10px;
   text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
+}
+body #wrapper-index .entry-header:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  height: 150px;
 }
 body #wrapper-index .entry-header:before {
   content: "";
@@ -8991,7 +9005,23 @@ body #wrapper-index .entry-header.image {
   position: relative;
 }
 body #wrapper-index .entry-header.image:before {
+  min-height: 300px;
   z-index: -1;
+}
+body #wrapper-index .entry-header.image:after {
+  min-height: 300px;
+}
+body #wrapper-index .entry-header.overlay:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
+}
+body #content {
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 body #sidebar {
   display: block;

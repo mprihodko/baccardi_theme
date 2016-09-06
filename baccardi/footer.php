@@ -35,7 +35,7 @@ $widgets = bc_check_enabled_footer_widgets();
                     <?php if (isset($bacardi['header_logo']['url']) && isset($bacardi['display_footer_logo'])): ?>
                         
                         <div class="col-md-12 col-sm-12 col-xs-12 text-center footer-logo">
-                            <img src="<?=$bacardi['header_logo']['url']?>" alt="<?=bloginfo('name');?>">
+                            <a href="<?=home_url()?>"><img src="<?=$bacardi['header_logo']['url']?>" alt="<?=bloginfo('name');?>"></a>
                         </div>
 
                     <?php endif; ?> 

@@ -67,6 +67,52 @@ if ( !function_exists( "redux_add_metaboxes" ) ):
 		'sections'      => $post_options,
 	);
 
+	$page_title_options = array();
+
+	$metaSection = array(
+		'title' => 'Page Title Options',
+		'icon_class'    => 'icon-large',
+		'icon'          => 'el-icon-list-alt',
+		'fields' => array(
+			array(
+				'id'       => 'enable_page_title',
+			    'type'     => 'switch', 
+			    'title'    => __('Enable Page Title', THEME_OPT),				    
+				'default'  => true
+			),
+			array(
+				'id'       => 'page_title_image',
+			    'type'     => 'media', 
+			    'title'    => __('Page Title Background', THEME_OPT)			 
+			),
+			array(
+				'id'       => 'page_title_head',
+			    'type'     => 'text', 
+			    'class'	   => 'form-control',
+			    'title'    => __('Page Title', THEME_OPT)			 
+			),
+			array(
+			    'id'        => 'enable_overlay',
+			    'type'      => 'color_rgba',
+			    'title'     => 'Background Color Picker',
+			    'subtitle'  => 'Set color and alpha channel',
+			    'desc'      => 'The caption of this button may be changed to whatever you like!'
+			)
+		)
+	);
+
+	$page_title_options[] = $metaSection;
+
+	$metaboxes[] = array(
+		'id'            => 'page_title_options',
+		'title'         => __( 'Page Title Options', THEME_OPT ),
+		'post_types'    => array( 'post', 'page' ),
+		'position'      => 'side', 
+		'priority'      => 'low', 
+		'sidebar'       => 0,  
+		'sections'      => $page_title_options,
+	);
+
 
 	return $metaboxes;
   }
