@@ -1,0 +1,70 @@
+#primary{
+
+	.img-box.post{
+
+		position: relative;
+	    overflow: hidden;
+	    padding-bottom: 100%;
+	    -webkit-border-radius: 3px;
+	    border-radius: 3px;
+	    background-clip: padding-box;
+	    margin-bottom: 20px;
+	    z-index: 10;
+
+		.img-bg{
+			position: absolute;
+		    top: 0;
+		    left: 0;
+		    right: 0;
+		    bottom: 0;
+		    -webkit-border-radius: 3px;
+		    border-radius: 3px;
+		    background-clip: padding-box;
+		    -webkit-transition: opacity, 0.3s, ease-out;
+		    -moz-transition: opacity, 0.3s, ease-out;
+		    -ms-transition: opacity, 0.3s, ease-out;
+		    -o-transition: opacity, 0.3s, ease-out;
+		    transition: opacity, 0.3s, ease-out;
+		    background-size: cover;
+		    background-repeat: no-repeat;
+		    background-position: center center;
+		    z-index: -1;
+		}
+
+		.img-txt{
+			position: absolute;
+		    top: 0;
+		    left: 0;
+		    right: 0;
+		    bottom: 0;
+		    text-align: center;
+		    z-index: 10;
+		    display: flex;
+		    justify-content: center;
+		    align-items: center;
+		    flex-direction: column;
+		    
+		    a{
+		    	color: #fff;
+		    	font-size: 20px;
+		    	font-weight: bold;
+		    	font-family: 'Lato-Bold'
+		    	&:hover{
+		    		text-decoration: none;
+		    	}
+		    }
+
+		}
+
+		&:hover{
+
+			.img-bg{
+				zoom: 1.5;
+			}
+
+		}
+
+	}
+
+}
+.img-txt:hover .img-bg{zoom:1.5}

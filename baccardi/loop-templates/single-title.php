@@ -22,10 +22,12 @@ if(isset($bacardi['page_title_image']['url']) && !empty($bacardi['page_title_ima
 }
 if(isset($bacardi['page_title_head']) && !empty($bacardi['page_title_head'])){
 	$title = '<h1>'.$bacardi['page_title_head'].'</h1>';
-}elseif( !is_home()){	 
+}elseif( is_page()){	 
 	$title = '<h1>'.get_the_title().'</h1>';
 }elseif( is_home()){
 	$title = '<h1>Blog</h1>';
+}else{
+	$title = '<h1 class="page-title">'.get_the_archive_title().'</h1>';
 }
 
 if($show_title): //showtitle ?>

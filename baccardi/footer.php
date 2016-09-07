@@ -9,15 +9,17 @@
 global $bacardi;
 $widgets = bc_check_enabled_footer_widgets(); 
 ?>
-                </div><!-- #primary --> 
+                    </div><!-- #primary --> 
 
-                <?php if ( is_active_sidebar( 'sidebar-bacardi' ) && $bacardi['enable_sidebar']) : ?>
-                    <div class="col-md-3 col-sm-hidden col-xs-hidden">
-                        <?php get_sidebar('main'); ?>
-                    </div>
-                <?php endif; ?> 
-            </div><!-- .row -->
-               
+                    <?php if ( is_active_sidebar( 'sidebar-bacardi' ) && $bacardi['enable_sidebar']) : ?>
+                        <div class="col-md-3 col-sm-hidden col-xs-hidden">
+                            <?php get_sidebar('main'); ?>
+                        </div>
+                    <?php endif; ?> 
+                </div><!-- .row -->
+            
+            </div><!-- Container end -->
+                 
         </div><!-- Container end -->
 
     </div><!-- Wrapper end -->

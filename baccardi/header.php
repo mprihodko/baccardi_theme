@@ -64,6 +64,8 @@ $logo = (isset($bacardi['header_logo']['url'])? $bacardi['header_logo']['url'] :
 	    <?php get_template_part( 'loop-templates/single-title' ); ?>  
 		<div id="content" class="container-fluid">
 
-	        <div class="row">
-	        
-	        	<div id="primary" class="<?php if ( is_active_sidebar( 'sidebar-bacardi' ) && $bacardi['enable_sidebar']) : ?>col-md-9<?php else : ?>col-md-12<?php endif; ?> content-area">
+			<div class="container">
+		
+		        <div class="row">
+		        
+		        	<div id="primary" class="<?php if ( is_active_sidebar( 'sidebar-bacardi' ) && $bacardi['enable_sidebar']) : ?>col-md-9 col-sm-9 col-xs-12<?php else : ?>col-md-12<?php endif; ?> content-area">
