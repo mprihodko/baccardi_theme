@@ -13,15 +13,46 @@ get_header(); ?>
             <?php while ( have_posts() ) : the_post(); ?>
 
                 <div class="col-md-12 col-sm-12">
-
+	                <?php the_title('<h1>', '</h1>') ?>
+	                <hr>    
 				    <div class="main-content fp-bottom-line">
 
 				        <?php the_content(); ?>
 
 				    </div><!-- .main-content -->
+				    <hr>    
+				</div>
 
-				</div>    
+				<div class="col-md-12 col-sm-12">
 
+					<section class="post-details row">
+
+						<div class="col-md-4 col-sm-4 sol-xs-12">            	
+
+							<i class="fa fa-tags post-data-icon" aria-hidden="true"></i>
+							<p class="post-data-entry"><?php the_category( ', ', 'single', get_the_ID() ); ?></p>
+
+			            </div>
+
+			            <div class="col-md-4 col-sm-4 sol-xs-12">
+			            	
+			            	<i class="fa fa-clock-o post-data-icon" aria-hidden="true"></i>
+			            	<p class="post-data-entry"><?php the_date() ?></p>
+
+			            </div>
+
+			            <div class="col-md-4 col-sm-4 sol-xs-12">
+			            	
+			            	<i class="fa fa-user post-data-icon" aria-hidden="true"></i>
+			            	<p class="post-data-entry">
+			            		<strong>Author: </strong>
+			            		<a href="<?php echo get_the_author_meta( 'user_url' ); ?>" class="author-link" target="_blank"><?php echo get_the_author_meta( 'display_name' ); ?></a>
+			            	</p>
+			            </div>
+
+			        </section>
+
+		        </div>
 				<div class="col-md-12 col-sm-12">
 	                <?php
 	                // If comments are open or we have at least one comment, load up the comment template

@@ -10,6 +10,20 @@ body {
 	font-family: @fontRegular;
 	overflow-x: hidden;
 
+	a{
+		text-decoration: none;
+		color: @defaultHover;
+
+		&:hover{
+			text-decoration: underline;
+			-webkit-transition: all, 0.3s, ease-out;
+		    -moz-transition: all, 0.3s, ease-out;
+		    -ms-transition: all, 0.3s, ease-out;
+		    -o-transition: all, 0.3s, ease-out;
+		    transition: all, 0.3s, ease-out;
+		}
+	}
+
 	#wrapper-index{
 		.entry-header{
 			min-height: 150px;
@@ -25,13 +39,13 @@ body {
 			    width: 100%;
 			    clear: both;
 			    font-size: 4.5rem;
-			    font-weight: bolder;
+			    font-weight: normal;
     			color: #fff;
     			margin: 0;
     			z-index: 10;
     			padding-top: @menuItemPaddingX*2;
     			padding-bottom: @menuItemPaddingX;    			
-    			text-shadow: 4px 4px 4px rgba(0,0,0,0.5);
+				text-shadow: 2px 1px 0px rgba(0, 0, 0, 0.5);
 			} 
 			&:after{
 					content: "";
@@ -84,6 +98,19 @@ body {
 	#content{
 		padding-top: @contentPaddingY;
 		padding-bottom: @contentPaddingY;
+
+		#main{
+			.search_title{
+				margin-top: 0;
+				h1{
+					margin-top: 0;
+				}
+			}
+		}
+	}
+	#sidebar_wrapper{
+		border-left: 1px solid #eee;
+		
 	}
 	#sidebar{
 		display: block;

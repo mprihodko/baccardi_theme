@@ -8,11 +8,15 @@
  */
 global $bacardi;
 $widgets = bc_check_enabled_footer_widgets(); 
+$sidebar_opt = $bacardi['enable_sidebar'];
+if(is_category() || is_archive() || is_single() || is_home()){
+    $sidebar_opt = $bacardi['enable_sidebar_blog'];
+}
 ?>
                     </div><!-- #primary --> 
 
-                    <?php if ( is_active_sidebar( 'sidebar-bacardi' ) && $bacardi['enable_sidebar']) : ?>
-                        <div class="col-md-3 col-sm-hidden col-xs-hidden">
+                    <?php if ( is_active_sidebar( 'sidebar-bacardi' ) && $sidebar_opt) : ?>
+                        <div class="col-md-3 col-sm-4 hidden-xs" id="sidebar_wrapper">
                             <?php get_sidebar('main'); ?>
                         </div>
                     <?php endif; ?> 

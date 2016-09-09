@@ -10,7 +10,12 @@
  */
 
 global $bacardi;
+
 $logo = (isset($bacardi['header_logo']['url'])? $bacardi['header_logo']['url'] : '');
+$sidebar_opt = $bacardi['enable_sidebar'];
+if(is_category() || is_archive() || is_single() || is_home()){
+    $sidebar_opt = $bacardi['enable_sidebar_blog'];
+}
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -68,4 +73,4 @@ $logo = (isset($bacardi['header_logo']['url'])? $bacardi['header_logo']['url'] :
 		
 		        <div class="row">
 		        
-		        	<div id="primary" class="<?php if ( is_active_sidebar( 'sidebar-bacardi' ) && $bacardi['enable_sidebar']) : ?>col-md-9 col-sm-9 col-xs-12<?php else : ?>col-md-12<?php endif; ?> content-area">
+		        	<div id="primary" class="<?php if ( is_active_sidebar( 'sidebar-bacardi' ) && $sidebar_opt) : ?>col-md-9 col-sm-8 col-xs-12<?php else : ?>col-md-12 col-sm-12 col-xs-12<?php endif; ?> content-area">

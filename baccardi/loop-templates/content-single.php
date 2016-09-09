@@ -20,4 +20,21 @@ global $bacardi
 
             </div><!-- .col-md-8.col-md-offset-2 -->
 
+            <div class="col-md-4 col-sm-4 sol-xs-12">
+            	
+
+
+            </div>
+
+            <div class="col-md-4 col-sm-4 sol-xs-12">
+            	
+            	<?=the_date()?>
+
+            </div>
+
+            <div class="col-md-4 col-sm-4 sol-xs-12">
+            	
+            	<?=the_author()?>
+
+            </div>
    

@@ -29,19 +29,25 @@ if ( ! class_exists( 'ReduxFramework_select_ajax' ) ) {
         public function render() {
 
             if ( isset( $this->field['multi'] ) &&  $this->field['multi']) { // Dummy proofing  :P
-                $multi = 'multiple="multiple"';
+                $multi = 'multiple';
                 $name = "name='".$this->field["name"]."[]'";
             }else{
                 $multi = '';
                 $name = "name='".$this->field["name"]."'";
             }
             if ( isset( $this->field['class'] ) &&  $this->field['class']) { // Dummy proofing  :P
-                $class = "class='".$this->field['class']." select_ajax multiple'";
+                if($multi)
+                    $class = "class='".$this->field['class']." select_ajax multiple'";
+                else
+                    $class = "class='".$this->field['class']." select_ajax'";
             }else{
-                $class = "class='select_ajax'";
+                if($multi)
+                    $class = "class='select_ajax multiple'"; 
+                else
+                    $class = "class='select_ajax'";
             }
             if ( isset( $this->field['id'] ) &&  $this->field['id']) { // Dummy proofing  :P
-                $id = "class='".$this->field['id']."'";
+                $id = "id='".$this->field['id']."'";
             }
             $data = "data-type='".$this->field['data']."'";
             $output = "<select ".$multi." ".$class." ".$id." ".$name." ".$data." style='width:40%'>";

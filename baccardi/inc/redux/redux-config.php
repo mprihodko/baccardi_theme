@@ -137,6 +137,23 @@ if ( ! class_exists( 'Redux_Framework_Lwp_config' ) ) {
 				'icon'   => 'el-icon-cog',
 				'fields' => $footer_fields
 			);
+
+			/* Set fields */
+			$blog_fields = array(
+    			array(
+					'id'       => 'enable_sidebar_blog',
+				    'type'     => 'switch', 
+				    'title'    => __('Sidebar', 'bacardi'),				    
+    				'default'  => true
+    			)    			
+			);
+
+			/* Set sections */
+			$this->sections[] = array(
+				'title'  => __( 'Blog Options', THEME_OPT ),
+				'icon'   => 'el-icon-cog',
+				'fields' => $blog_fields
+			);
 		}
 
 		/**

@@ -12,7 +12,7 @@ if ( !function_exists( "redux_add_metaboxes" ) ):
 	
 	$page_options = array();
 
-	$metaSection = array(
+	$page_options[] = array(
 		'title' => 'Enable Sidebar',
 		'icon_class'    => 'icon-large',
 		'icon'          => 'el-icon-list-alt',
@@ -25,22 +25,10 @@ if ( !function_exists( "redux_add_metaboxes" ) ):
 			),
 		)
 	);
-	
-	$page_options[] = $metaSection;
-
-	$metaboxes[] = array(
-		'id'            => 'page-options',
-		'title'         => __( 'Page options', THEME_OPT ),
-		'post_types'    => array( 'page' ),
-		'position'      => 'normal', 
-		'priority'      => 'high', 
-		'sidebar'       => 0,  
-		'sections'      => $page_options,
-	);
 
 	$post_options = array();
 
-	$metaSection = array(
+	$post_options[] = array(
 		'title' => 'Related Posts',
 		'icon_class'    => 'icon-large',
 		'icon'          => 'el-icon-list-alt',
@@ -48,28 +36,16 @@ if ( !function_exists( "redux_add_metaboxes" ) ):
 			array(
 				'id'	=> 'related_posts',
 				'type'	=> 'select_ajax',
-				'data'	=> ('page'),
+				'data'	=> ('post'),
 				'multi'	=> true,
 				'title'	=> 'Related Posts'
-			)		
+			)
 		)
-	);
-
-	$post_options[] = $metaSection;
-
-	$metaboxes[] = array(
-		'id'            => 'post-options',
-		'title'         => __( 'Related Posts', THEME_OPT ),
-		'post_types'    => array( 'post' ),
-		'position'      => 'normal', 
-		'priority'      => 'high', 
-		'sidebar'       => 0,  
-		'sections'      => $post_options,
 	);
 
 	$page_title_options = array();
 
-	$metaSection = array(
+	$page_title_options[] = array(
 		'title' => 'Page Title Options',
 		'icon_class'    => 'icon-large',
 		'icon'          => 'el-icon-list-alt',
@@ -101,15 +77,36 @@ if ( !function_exists( "redux_add_metaboxes" ) ):
 		)
 	);
 
-	$page_title_options[] = $metaSection;
+	$metaboxes[] = array(
+		'id'            => 'page-options',
+		'title'         => __( 'Page options', THEME_OPT ),
+		'post_types'    => array( 'page' ),
+		'position'      => 'normal', 
+		'priority'      => 'high', 
+		'sidebar'       => 1,  
+		'sections'      => $page_options,
+	);
+
+	$metaboxes[] = array(
+		'id'            => 'post-options',
+		'title'         => __( 'Related Posts', THEME_OPT ),
+		'post_types'    => array( 'post' ),
+		'page_template' => array('single.php'),
+		'position'      => 'normal', 
+		'priority'      => 'high',
+		'post_format' => array('image'), 
+		'sidebar'       => 1,  
+		'sections'      => $post_options,
+	);
 
 	$metaboxes[] = array(
 		'id'            => 'page_title_options',
 		'title'         => __( 'Page Title Options', THEME_OPT ),
-		'post_types'    => array( 'post', 'page' ),
-		'position'      => 'side', 
-		'priority'      => 'low', 
-		'sidebar'       => 0,  
+		'post_types'    => array( 'page', 'post' ),
+		'position'      => 'normal', 
+		// 'post_format'   => array('image'),
+		'priority'      => 'high', 
+		'sidebar'       => 1,  
 		'sections'      => $page_title_options,
 	);
 

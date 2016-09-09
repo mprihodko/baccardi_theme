@@ -23,8 +23,8 @@ if(file_exists(get_template_directory().'/inc/theme_supports.php'))
 if(file_exists(get_template_directory().'/inc/redux/loader.php'))
 	require_once get_template_directory().'/inc/redux/loader.php';
 
-function bc_load_scripts(){
 
+function bc_load_scripts(){
 	
 	wp_dequeue_script( 'select2-js' );
 	wp_deregister_script("select2-js");

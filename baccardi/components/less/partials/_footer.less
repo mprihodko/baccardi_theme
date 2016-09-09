@@ -37,6 +37,13 @@
 
 			a{
 				color: @defaultHover;
+				font-size: 18px;
+				text-decoration: none;
+				padding-bottom: 5px;
+				&:hover{
+					color: #fff;
+					border-bottom: 1px solid #fff;
+				}
 			}
 			ul.footer-widget{
 
@@ -44,6 +51,19 @@
 				padding: 0;
 				margin: 0;
 				text-align: left;
+
+				li{
+					margin-bottom: 5px;
+				}
+
+			}
+
+			@media screen and (max-width: 767px){
+
+				ul.footer-widget{
+					text-align: center;
+				}
+
 			}
 		}
 	}
