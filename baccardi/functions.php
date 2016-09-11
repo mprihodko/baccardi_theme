@@ -23,6 +23,8 @@ if(file_exists(get_template_directory().'/inc/theme_supports.php'))
 if(file_exists(get_template_directory().'/inc/redux/loader.php'))
 	require_once get_template_directory().'/inc/redux/loader.php';
 
+if(file_exists(get_template_directory().'/inc/bc_walker.php'))
+	require_once get_template_directory().'/inc/bc_walker.php';
 
 function bc_load_scripts(){
 	

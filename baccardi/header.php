@@ -12,9 +12,9 @@
 global $bacardi;
 
 $logo = (isset($bacardi['header_logo']['url'])? $bacardi['header_logo']['url'] : '');
-$logo_sticky = (isset($bacardi['header_logo_sticky']['url'])? $bacardi['header_logo_sticky']['url'] : '');
+$logo_sticky = (isset($bacardi['header_logo_sticky']['url'])? $bacardi['header_logo_sticky']['url'] : 5);
 $logo_size = (isset($bacardi['header_logo_size'])? $bacardi['header_logo_size'] : '');
-$logo_size_sticky = (isset($bacardi['header_logo_sticky_size'])? $bacardi['header_logo_sticky_size'] : '');
+$logo_size_sticky = (isset($bacardi['header_logo_sticky_size'])? $bacardi['header_logo_sticky_size'] : 5);
 $sidebar_opt = $bacardi['enable_sidebar'];
 if(is_category() || is_archive() || is_single() || is_home()){
     $sidebar_opt = $bacardi['enable_sidebar_blog'];
@@ -60,7 +60,7 @@ if(is_category() || is_archive() || is_single() || is_home()){
 				    <!-- Brand and toggle get grouped for better mobile display -->
 				    	<div class="navbar-header">
 				    	<a href="<?=home_url()?>" style="line-height:  <?=$logo_size*35?>px">
-					      	<img class="navbar-brand logo logo-normal" src="<?=$logo?>" style="height: <?=$logo_size*20?>px" />
+					      	<img class="navbar-brand logo logo-normal" src="<?=$logo?>" style="width: <?=$logo_size*32?>px" />
 					      	<img class="navbar-brand logo logo-sticky" src="<?=$logo_sticky?>" style="height: <?=$logo_size_sticky*16?>px" />
 					      	</a>
 			                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#primary-menu" aria-expanded="false">		                     
@@ -74,9 +74,12 @@ if(is_category() || is_archive() || is_single() || is_home()){
 				                            array(
 				                                'theme_location' => 'primary',
 				                                'menu_class' => 'cat-menu nav navbar-nav',
-				                                'fallback_cb' => '',
-				                                'desc_depth' => 1,				                                
-				                                // 'walker' => new fastpaleo_walker()
+				                                'desc_depth' => 1,
+				                                'thumbnail' => true,
+				                                'thumbnail_link' => false,
+				                                'thumbnail_size' => 'nav-thumb',
+				                                'thumbnail_attr' => array( 'class' => 'nav_thumb' , 'alt' => '' , 'title' => '' ),		                                
+				                                'walker' => new bc_walker()
 				                            )
 					                    ); ?>
 					    </div><!-- /.navbar-collapse -->

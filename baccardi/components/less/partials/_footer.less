@@ -57,7 +57,52 @@
 				}
 
 			}
-
+			.twitter-social,
+			.facebook-social,
+			.pinterest-social{
+				a{
+					&:before{
+						color: @defaultHover;
+						font-family: 'fontawesome';
+						font-size: 20px;
+						width: 30px;
+	    				display: inline-block;
+					}
+				
+					&:hover{
+						&:before{
+							-webkit-transition: all, 0.3s, ease-out;
+						    -moz-transition: all, 0.3s, ease-out;
+						    -ms-transition: all, 0.3s, ease-out;
+						    -o-transition: all, 0.3s, ease-out;
+						    transition: all, 0.3s, ease-out;  
+							color: #fff;
+							 
+						}
+					}
+				}
+			}
+			.pinterest-social{
+				a{
+					&:before{
+						content: "\f231";
+					}
+				}
+			}
+			.facebook-social{
+				a{
+					&:before{
+						content: "\f09a";
+					}
+				}
+			}
+			.twitter-social{
+				a{
+					&:before{
+						content: "\f099";
+					}
+				}
+			}
 			@media screen and (max-width: 767px){
 
 				ul.footer-widget{

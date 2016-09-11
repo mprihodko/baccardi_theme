@@ -9,6 +9,7 @@
 global $bacardi;
 $widgets = bc_check_enabled_footer_widgets(); 
 $sidebar_opt = $bacardi['enable_sidebar'];
+$footer_logo_size = (isset($bacardi['footer_logo_size'])? $bacardi['footer_logo_size'] : 5)*20;
 if(is_category() || is_archive() || is_single() || is_home()){
     $sidebar_opt = $bacardi['enable_sidebar_blog'];
 }
@@ -38,10 +39,20 @@ if(is_category() || is_archive() || is_single() || is_home()){
         
                     <footer id="colophon" class="site-footer" role="contentinfo">
 
-                    <?php if (isset($bacardi['header_logo']['url']) && isset($bacardi['display_footer_logo'])): ?>
+                    <?php if (isset($bacardi['display_footer_logo']) && $bacardi['display_footer_logo']): ?>
                         
                         <div class="col-md-12 col-sm-12 col-xs-12 text-center footer-logo">
-                            <a href="<?=home_url()?>"><img src="<?=$bacardi['header_logo']['url']?>" alt="<?=bloginfo('name');?>"></a>
+
+                            <?php if (isset($bacardi['footer_logo']['url'])): ?>
+                            
+                                 <a href="<?=home_url()?>"><img src="<?=$bacardi['footer_logo']['url']?>" style="height:<?=$footer_logo_size?>px" alt="<?=bloginfo('name');?>"></a>
+
+                            <?php elseif(isset($bacardi['header_logo']['url'])): ?>
+                            
+                                <a href="<?=home_url()?>"><img style="height:<?=$footer_logo_size?>px" src="<?=$bacardi['header_logo']['url']?>" alt="<?=bloginfo('name');?>"></a>
+                            
+                            <?php endif; ?> 
+
                         </div>
 
                     <?php endif; ?> 

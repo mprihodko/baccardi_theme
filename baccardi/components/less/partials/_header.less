@@ -5,21 +5,40 @@
 	
     &.non-sticky{
     	.logo-normal{
+    		-webkit-transition: all, 0.5s, ease-out;
+		    -moz-transition: all, 0.5s, ease-out;
+		    -ms-transition: all, 0.5s, ease-out;
+		    -o-transition: all, 0.5s, ease-out;
+		    transition: all, 0.5s, ease-out;
 			display: block;
 	    }
 	    .logo-sticky{
+	    	-webkit-transition: all, 0.5s, ease-out;
+		    -moz-transition: all, 0.5s, ease-out;
+		    -ms-transition: all, 0.5s, ease-out;
+		    -o-transition: all, 0.5s, ease-out;
+		    transition: all, 0.5s, ease-out;
 	    	display: none;
 	    }
 	    .logo{				 
-		      
+		   -webkit-transition: all, 0.5s, ease-out;
+		    -moz-transition: all, 0.5s, ease-out;
+		    -ms-transition: all, 0.5s, ease-out;
+		    -o-transition: all, 0.5s, ease-out;
+		    transition: all, 0.5s, ease-out;
 		    height: auto;
 		    float: left;
 		    margin: 0;
 		    padding: 15px 0;
-		    max-width: 400px;	
+		    max-width: 300px;	
 		    max-height: 200px;			     
 		    text-transform: uppercase;
 		    font-size: @logoHeight;
+		}
+		@media screen and (max-width:768px){
+			.logo{
+				margin-left: 20px;
+			}
 		}
     }
 	&.sticky{
@@ -29,16 +48,40 @@
 	    background: #FFF;
 	    z-index: 1000;
 	    &.admin_header{
-	    	top: 32px;
+	    	-webkit-transition: all, 0.5s, ease-out;
+		    -moz-transition: all, 0.5s, ease-out;
+		    -ms-transition: all, 0.5s, ease-out;
+		    -o-transition: all, 0.5s, ease-out;
+		    transition: all, 0.5s, ease-out;
+	    	top: 32px;	    	
+	    }
+	    @media screen and (max-width: 600px){
+	    	&.admin_header{
+	    		top: 0;
+	    	}	    	
 	    }
 	    .logo-normal{
+	    	-webkit-transition: all, 0.5s, ease-out;
+		    -moz-transition: all, 0.5s, ease-out;
+		    -ms-transition: all, 0.5s, ease-out;
+		    -o-transition: all, 0.5s, ease-out;
+		    transition: all, 0.5s, ease-out;
 	    	display: none;
 	    }
 	    .logo-sticky{
+	    	-webkit-transition: all, 0.5s, ease-out;
+		    -moz-transition: all, 0.5s, ease-out;
+		    -ms-transition: all, 0.5s, ease-out;
+		    -o-transition: all, 0.5s, ease-out;
+		    transition: all, 0.5s, ease-out;
 	    	display: block;
 	    }
 	    .logo{				 
-		    		    
+		    -webkit-transition: all, 0.5s, ease-out;
+		    -moz-transition: all, 0.5s, ease-out;
+		    -ms-transition: all, 0.5s, ease-out;
+		    -o-transition: all, 0.5s, ease-out;
+		    transition: all, 0.5s, ease-out;  
 		    height: auto;
 		    float: left;
 		    margin: 0;
@@ -48,6 +91,11 @@
 		    text-transform: uppercase;
 		    font-size: @logoHeight;
 		    font-weight: bolder;		
+		}
+		@media screen and (max-width:768px){
+			.logo{
+				margin-left: 20px;
+			}
 		}
 	}
 
@@ -73,7 +121,8 @@
 			.nav {
 
 				@media screen and (max-width: 768px){
-					margin-top: @menuItemPaddingY*2;
+					margin-top: @menuItemPaddingY+10px;
+					font-weight: 600;
 				}
 
 				& > li{
@@ -124,13 +173,18 @@
 							}
 							ul{
 								display: block;
-								padding-left: @menuItemPaddingX;
+								padding-left: @menuItemPaddingX*3;
 								li{
 									a{
 										cursor: pointer;									
 										&:after{
 											content: "";								
 										}
+									}
+									ul{
+										padding-left: @menuItemPaddingX;
+										margin-left: 0;
+										margin-bottom: 10px;
 									}
 								}
 							}
@@ -234,6 +288,9 @@
 										    vertical-align: top;
 										    padding: 0 10px;
 										    width: 33%;
+										    a{
+										    	text-align: center;
+										    }
 									    }
 
 									    &:after{							    		  
@@ -261,6 +318,7 @@
 							    padding: @menuItemPaddingY 0 @yPadding*2 0;
 							    position: absolute;
 							    left: 0;
+							    min-height: 250px;
 							    z-index: 100;
 							    right: 0;	
 							    & > li{
@@ -283,20 +341,37 @@
 							    a{
 							    	cursor: pointer;
 							    	color: #fff;
-							    	font-size: 15px;
+							    	font-size: 17px;
 							    	text-decoration: none;
-							    	 
+							    	display: block;
+							    	padding: 10px 0;
 							    	&:hover{
 							    		color: @defaultHover;
 							    	}
 							    }
+							    .nav-post-thumb{
+								    display: block;
+								    width: 100%;
+								    height: 140px;
+								    border-radius: 5px;
+								    margin-bottom: 15px;
+								    background-position: center center !important;
+								    background-size: cover !important;
+								}
 							
 							}
 						}
 						@media screen and (max-width: 768px){
 							background: transparent;
+							.nav-post-thumb{
+								display: none;
+							}
+							& > ul{
+								min-height: 20px;
+							}
 
 						}
+
 					}
 
 
@@ -321,14 +396,23 @@
 						a{
 							color: #fff;	
 							font-size: 12px;
-							margin: @yPadding*0.9 @yPadding 0 @yPadding;
-						 
+							margin: 10px @yPadding 0 @yPadding;
+						 	line-height: 1.2em!important;
 							&:hover{
 								background: transparent;
 								text-decoration: underline;
 								color: @defaultHover;
 								&:after{
 									color: @defaultHover;
+								}
+							}
+						}
+						ul{
+							margin: 10px @yPadding 0 @yPadding;
+							li{
+								a{
+									line-height: 1.2em!important;
+									margin: 0;
 								}
 							}
 						}
@@ -363,7 +447,7 @@
 				}
 			}
 			
-
+			
 			@media screen and (max-width: 768px){
 				.navbar-collapse{
 					position: absolute;

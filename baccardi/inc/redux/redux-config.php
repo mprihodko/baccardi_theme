@@ -134,7 +134,20 @@ if ( ! class_exists( 'Redux_Framework_Lwp_config' ) ) {
 				    'title'    => __('Logo On', 'bacardi'),				    
     				'default'  => true
     			),
-    			    			
+    			array(
+					'id'    => 'footer_logo',
+		            'type'  => 'media',
+		            'title' => 'Site Footer Logo',
+		            'desc'  => 'If this option not selected will be use Header Logo'
+				),
+				array(
+					'id'    => 'footer_logo_size',
+		            'type'  => 'number',
+		            'min'	=> 1,
+		            'max'	=> 10,
+		            'default'=>5,
+		            'title' => 'Footer Logo Size'
+				),  			
 				array(
 					'id'       => 'copyright_footer',
 				    'type'     => 'editor', 
