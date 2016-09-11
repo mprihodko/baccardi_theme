@@ -12,6 +12,9 @@
 global $bacardi;
 
 $logo = (isset($bacardi['header_logo']['url'])? $bacardi['header_logo']['url'] : '');
+$logo_sticky = (isset($bacardi['header_logo_sticky']['url'])? $bacardi['header_logo_sticky']['url'] : '');
+$logo_size = (isset($bacardi['header_logo_size'])? $bacardi['header_logo_size'] : '');
+$logo_size_sticky = (isset($bacardi['header_logo_sticky_size'])? $bacardi['header_logo_sticky_size'] : '');
 $sidebar_opt = $bacardi['enable_sidebar'];
 if(is_category() || is_archive() || is_single() || is_home()){
     $sidebar_opt = $bacardi['enable_sidebar_blog'];
@@ -28,10 +31,26 @@ if(is_category() || is_archive() || is_single() || is_home()){
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 <?php wp_head(); ?>
+<style type="text/css">
+	#bc_header.sticky .nav-bottom .navbar .nav > li > a{
+		line-height: <?=$logo_size_sticky*16?>px;
+		padding: 0 15px;
+	}
+	#bc_header.non-sticky .nav-bottom .navbar .nav > li > a{
+		line-height: <?=$logo_size*20?>px;
+		padding: 0 15px;
+	}
+</style>
 </head>
 
 <body <?php body_class(); ?>>
-	<header id="bc_header">
+	<?php 
+	$header_class = '';
+	if ( is_admin_bar_showing() ) {
+		$header_class="admin_header";
+	}
+	?>
+	<header id="bc_header" class="non-sticky <?=$header_class?>">
 	    
 	    <!-- ******************* The Navbar Area ******************* -->
 	   <div class="nav-bottom">
@@ -40,7 +59,10 @@ if(is_category() || is_archive() || is_single() || is_home()){
 				  
 				    <!-- Brand and toggle get grouped for better mobile display -->
 				    	<div class="navbar-header">
-					      	<a class="navbar-brand logo" style="background-image: url('<?=$logo?>'); <?=($logo)? 'text-indent: -9999em;' : ''?>" href="<?=home_url()?>">Bacardi</a>
+				    	<a href="<?=home_url()?>" style="line-height:  <?=$logo_size*35?>px">
+					      	<img class="navbar-brand logo logo-normal" src="<?=$logo?>" style="height: <?=$logo_size*20?>px" />
+					      	<img class="navbar-brand logo logo-sticky" src="<?=$logo_sticky?>" style="height: <?=$logo_size_sticky*16?>px" />
+					      	</a>
 			                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#primary-menu" aria-expanded="false">		                     
 			                    <i class="fa fa-times" aria-hidden="true"></i>
 			                </button>				      

@@ -96,9 +96,25 @@ if ( ! class_exists( 'Redux_Framework_Lwp_config' ) ) {
 		            'title' => 'Site Header Logo'
 				),
 				array(
+					'id'    => 'header_logo_size',
+		            'type'  => 'number',
+		            'min'	=> 1,
+		            'max'	=> 10,
+		            'default'=>5,
+		            'title' => 'Site Header Logo Size'
+				),
+				array(
 					'id'    => 'header_logo_sticky',
 		            'type'  => 'media',
 		            'title' => 'Sticky Header Logo'
+				),
+				array(
+					'id'    => 'header_logo_sticky_size',
+		            'type'  => 'number',
+		            'min'	=> 1,
+		            'max'	=> 10,
+		            'default'=>5,
+		            'title' => 'Site Header Logo Size'
 				),
 			);
 

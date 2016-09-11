@@ -9056,8 +9056,48 @@ body #sidebar li {
   padding: 0;
   margin: 0;
 }
-#bc_header {
-  min-height: 75px;
+#bc_header.non-sticky .logo-normal {
+  display: block;
+}
+#bc_header.non-sticky .logo-sticky {
+  display: none;
+}
+#bc_header.non-sticky .logo {
+  height: auto;
+  float: left;
+  margin: 0;
+  padding: 15px 0;
+  max-width: 400px;
+  max-height: 200px;
+  text-transform: uppercase;
+  font-size: 35px;
+}
+#bc_header.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #FFF;
+  z-index: 1000;
+}
+#bc_header.sticky.admin_header {
+  top: 32px;
+}
+#bc_header.sticky .logo-normal {
+  display: none;
+}
+#bc_header.sticky .logo-sticky {
+  display: block;
+}
+#bc_header.sticky .logo {
+  height: auto;
+  float: left;
+  margin: 0;
+  padding: 15px 0;
+  max-width: auto;
+  max-height: 120px;
+  text-transform: uppercase;
+  font-size: 35px;
+  font-weight: bolder;
 }
 #bc_header .nav-bottom {
   box-shadow: 0 0 2px;
@@ -9075,7 +9115,7 @@ body #sidebar li {
   box-sizing: border-box;
   border: none;
   position: relative;
-  font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Lato-Light";
 }
 @media screen and (max-width: 768px) {
   #bc_header .nav-bottom .navbar .nav {
@@ -9094,7 +9134,6 @@ body #sidebar li {
     position: relative;
   }
   #bc_header .nav-bottom .navbar .nav > li > a {
-    font-weight: bold;
     font-size: 18px;
   }
 }
@@ -9141,10 +9180,17 @@ body #sidebar li {
   text-transform: uppercase;
   color: #777;
   text-decoration: none;
-  padding: 30px 10px;
+  padding: 15px 10px;
   margin: 0;
-  font-weight: bold;
-  font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Lato-Light";
+}
+#bc_header .nav-bottom .navbar .nav > li > a:after {
+  content: " ";
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: inherit;
+  color: #777;
 }
 #bc_header .nav-bottom .navbar .nav > li > a:focus,
 #bc_header .nav-bottom .navbar .nav > li > a:hover {
@@ -9268,12 +9314,12 @@ body #sidebar li {
     font-size: 12px;
     text-transform: uppercase;
     color: #777;
+    line-height: 1.2em;
     text-decoration: none;
     padding: 0;
     margin: 0;
     color: #fff;
-    font-weight: bold;
-    font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Lato-Light";
   }
   #bc_header .nav-bottom .navbar .nav > li a {
     color: #fff;
@@ -9316,21 +9362,6 @@ body #sidebar li {
     background: rgba(0, 0, 0, 0.7);
     z-index: 1000;
   }
-}
-#bc_header .nav-bottom .navbar .logo {
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: 100% auto;
-  display: block;
-  width: 170px;
-  height: 35px;
-  float: left;
-  padding: 0;
-  margin: 20px;
-  line-height: 35px;
-  text-transform: uppercase;
-  font-size: 35px;
-  font-weight: bolder;
 }
 .post-details {
   margin: 30px 0;

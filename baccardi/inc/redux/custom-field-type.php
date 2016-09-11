@@ -10,6 +10,17 @@
 
 if(!function_exists('bc_add_custom_redux_field')){
 
+	function bc_add_custom_redux_field_number(){
+		return __DIR__.'inc/redux/ReduxFramework/ReduxCore/inc/fields/number';
+	}
+
+	apply_filters('redux/'.THEME_OPT.'/field/class/number', 'bc_add_custom_redux_field_number', 'number');
+
+}
+
+
+if(!function_exists('bc_add_custom_redux_field')){
+
 	function bc_add_custom_redux_field(){
 		return __DIR__.'inc/redux/ReduxFramework/ReduxCore/inc/fields/select_ajax';
 	}

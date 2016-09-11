@@ -1,8 +1,58 @@
 #bc_header{
 
-	min-height: 75px;
+
+	// min-height: 75px;
+	
+    &.non-sticky{
+    	.logo-normal{
+			display: block;
+	    }
+	    .logo-sticky{
+	    	display: none;
+	    }
+	    .logo{				 
+		      
+		    height: auto;
+		    float: left;
+		    margin: 0;
+		    padding: 15px 0;
+		    max-width: 400px;	
+		    max-height: 200px;			     
+		    text-transform: uppercase;
+		    font-size: @logoHeight;
+		}
+    }
+	&.sticky{
+		position: fixed;
+	    top: 0;
+	    width: 100%;
+	    background: #FFF;
+	    z-index: 1000;
+	    &.admin_header{
+	    	top: 32px;
+	    }
+	    .logo-normal{
+	    	display: none;
+	    }
+	    .logo-sticky{
+	    	display: block;
+	    }
+	    .logo{				 
+		    		    
+		    height: auto;
+		    float: left;
+		    margin: 0;
+		    padding: 15px 0;
+		    max-width: auto;	
+		    max-height:120px;			     
+		    text-transform: uppercase;
+		    font-size: @logoHeight;
+		    font-weight: bolder;		
+		}
+	}
 
 	.nav-bottom{
+
 		box-shadow: 0 0 2px;
 
 		.container{
@@ -18,7 +68,7 @@
 			box-sizing: border-box;
 	    	border: none;
 			position: relative;
-			font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+			font-family: "Lato-Light";
 
 			.nav {
 
@@ -37,7 +87,7 @@
 						width: 50%;
 						position: relative;		
 						& > a{
-							font-weight: bold;
+							// font-weight: bold;
 							font-size: 18px;
 						}			
 					}
@@ -92,13 +142,22 @@
 						cursor: pointer;
 						font-size: 18px;
 						text-transform: uppercase;
-						font-weight: bold;
+						// font-weight: bold;
 					    color: @defaultText;
 					    text-decoration: none;
-					    padding: @menuItemPaddingY  @menuItemPaddingX;
+					    padding: 15px  @menuItemPaddingX;
 					    margin: 0;
-					    font-weight: bold;
-					    font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;	
+					    // line-height: (@logoHeight+5px)*2;
+					    // font-weight: bold;
+					    font-family: "Lato-Light";
+					    &:after{
+					    	content: " ";
+						    font-family: FontAwesome;
+						    font-style: normal;
+						    font-weight: normal;
+						    text-decoration: inherit;
+						    color: #777;
+					    }
 					}
 					& > a:focus,
 					& > a:hover{
@@ -247,14 +306,15 @@
 
 							font-size: 12px;
 							text-transform: uppercase;
-							font-weight: bold;
+							// font-weight: bold;
 						    color: @defaultText;
+						    line-height: 1.2em;
 						    text-decoration: none;
 						    padding: 0;
 						    margin: 0;
 						    color: #fff;
-						    font-weight: bold;
-						    font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif
+						    // font-weight: bold;
+						    font-family: "Lato-Light";
 
 						}
 
@@ -314,22 +374,8 @@
 				    background: @blackOverlay;
 				    z-index: 1000;			 
 				}
-			}
-			.logo{
-				background-repeat: no-repeat;
-			    background-position: center center;
-			    background-size: 100% auto;
-			    display: block;
-			    width: 170px;
-			    height: @logoHeight;
-			    float: left;
-			    padding: 0;
-			    margin:@yPadding;	
-			    line-height: 35px;
-			    text-transform: uppercase;
-			    font-size: @logoHeight;
-			    font-weight: bolder;		
-			}
+			}			
+			
 		}
 
 	}
