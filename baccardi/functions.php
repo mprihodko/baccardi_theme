@@ -26,6 +26,9 @@ if(file_exists(get_template_directory().'/inc/redux/loader.php'))
 if(file_exists(get_template_directory().'/inc/bc_walker.php'))
 	require_once get_template_directory().'/inc/bc_walker.php';
 
+if(file_exists(get_template_directory().'/inc/category_custom_field.php'))
+	require_once get_template_directory().'/inc/category_custom_field.php';
+
 function bc_load_scripts(){
 	
 	wp_dequeue_script( 'select2-js' );
@@ -76,13 +79,13 @@ if(!function_exists('bc_check_enabled_footer_widgets')){
 
 	function bc_check_enabled_footer_widgets(){
 		$widgets = array(); 
-		if(is_dynamic_sidebar('footer-widget-1'))
+		if(is_active_sidebar('footer-widget-1'))
 			$widgets[]='footer-widget-1';
-		if(is_dynamic_sidebar('footer-widget-2'))
+		if(is_active_sidebar('footer-widget-2'))
 			$widgets[]='footer-widget-2';
-		if(is_dynamic_sidebar('footer-widget-3'))
+		if(is_active_sidebar('footer-widget-3'))
 			$widgets[]='footer-widget-3';
-		if(is_dynamic_sidebar('footer-widget-4'))
+		if(is_active_sidebar('footer-widget-4'))
 			$widgets[]='footer-widget-4';
 		return $widgets;
 	}

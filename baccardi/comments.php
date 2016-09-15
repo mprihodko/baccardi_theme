@@ -54,7 +54,7 @@ if ( post_password_required() ) {
 					'style'       => 'ul',
 					'short_ping'  => true,
 					'avatar_size' => 60,
-					'per_page'	  => 5,
+					'per_page'	  => 2,
 					'reply_text'  => '<i class="fa fa-reply" aria-hidden="true"></i> Reply'	
 				) );
 			?>
@@ -66,15 +66,17 @@ if ( post_password_required() ) {
 
 			'base'    => add_query_arg( 'cpage', '%#%' ),
 			'format'  => '?cpage=%#%',
-			'total'   => ceil(count($wp_query->comments)/5),
-			'current' => get_query_var('cpage'),
+			'total'   => ceil(count($wp_query->comments)/2),
+			'current' => (get_query_var('cpage') ? get_query_var('cpage'): 1),
 			'echo'    => true,			 
 		);
 
-			paginate_comments_links( $args );
-
-
-		 ?>
+		?>
+		<div id="comments_pagination">
+			
+			<?php paginate_comments_links( $args ); ?>
+			
+		</div>		 
 
 	<?php endif; // Check for have_comments(). ?>
 

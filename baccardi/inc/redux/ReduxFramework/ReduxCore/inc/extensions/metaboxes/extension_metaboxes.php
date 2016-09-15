@@ -1167,6 +1167,7 @@
                     $save = true;
 
                     //parent_options
+                    
                     if ( isset( $this->options_defaults[ $key ] ) && $value == $this->options_defaults[ $key ] ) {
                         $save = false;
                     }
@@ -1187,7 +1188,7 @@
                     }
 
                 }
-
+                
                 $validate = $this->parent->_validate_values( $toSave, $toCompare, $this->sections );
 
                 // Validate fields (if needed)

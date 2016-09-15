@@ -29,16 +29,17 @@ if ( !function_exists( "redux_add_metaboxes" ) ):
 	$post_options = array();
 
 	$post_options[] = array(
-		'title' => 'Related Posts',
+		'title' 		=> 'Related Posts',
 		'icon_class'    => 'icon-large',
 		'icon'          => 'el-icon-list-alt',
 		'fields' => array(
 			array(
-				'id'	=> 'related_posts',
+				'id'	=> 'related',
 				'type'	=> 'select_ajax',
-				'data'	=> ('post'),
+				'data'	=> array('post', 'page'),
 				'multi'	=> true,
-				'title'	=> 'Related Posts'
+				'title'	=> 'Related Posts',
+				'default' => ''
 			)
 		)
 	);
@@ -78,7 +79,7 @@ if ( !function_exists( "redux_add_metaboxes" ) ):
 	);
 
 	$metaboxes[] = array(
-		'id'            => 'page-options',
+		'id'            => 'page_options',
 		'title'         => __( 'Page options', THEME_OPT ),
 		'post_types'    => array( 'page' ),
 		'position'      => 'normal', 
@@ -88,13 +89,12 @@ if ( !function_exists( "redux_add_metaboxes" ) ):
 	);
 
 	$metaboxes[] = array(
-		'id'            => 'post-options',
+		'id'            => 'related_post',
 		'title'         => __( 'Related Posts', THEME_OPT ),
 		'post_types'    => array( 'post' ),
 		'page_template' => array('single.php'),
 		'position'      => 'normal', 
 		'priority'      => 'high',
-		'post_format' => array('image'), 
 		'sidebar'       => 1,  
 		'sections'      => $post_options,
 	);

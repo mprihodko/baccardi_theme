@@ -295,7 +295,7 @@
                      *
                      * @param  array $sections field option sections
                      */
-                    if( is_admin() &&  current_user_can('manage_options') && isset($_GET['page']) && $_GET['page']=='theme_options')
+                    if( is_admin() &&  current_user_can('manage_options') )
                         $this->sections = apply_filters( 'redux-sections', $sections ); // REMOVE LATER
                     /**
                      * filter 'redux-sections-{opt_name}'

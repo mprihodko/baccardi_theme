@@ -46,7 +46,7 @@ get_header(); ?>
 			            	<i class="fa fa-user post-data-icon" aria-hidden="true"></i>
 			            	<p class="post-data-entry">
 			            		<strong>Author: </strong>
-			            		<a href="<?php echo get_the_author_meta( 'user_url' ); ?>" class="author-link" target="_blank"><?php echo get_the_author_meta( 'display_name' ); ?></a>
+			            		<?php echo the_author_posts_link() ?>			            	
 			            	</p>
 			            </div>
 

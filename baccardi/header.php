@@ -37,8 +37,12 @@ if(is_category() || is_archive() || is_single() || is_home()){
 		padding: 0 15px;
 	}
 	#bc_header.non-sticky .nav-bottom .navbar .nav > li > a{
-		line-height: <?=$logo_size*20?>px;
+		/*line-height: <?=$logo_size*0?>px;*/
 		padding: 0 15px;
+		/*line-height: 100px;*/
+	}
+	.navbar{
+		
 	}
 </style>
 </head>
@@ -59,8 +63,8 @@ if(is_category() || is_archive() || is_single() || is_home()){
 				  
 				    <!-- Brand and toggle get grouped for better mobile display -->
 				    	<div class="navbar-header">
-				    	<a href="<?=home_url()?>" style="line-height:  <?=$logo_size*35?>px">
-					      	<img class="navbar-brand logo logo-normal" src="<?=$logo?>" style="width: <?=$logo_size*32?>px" />
+				    	<a href="<?=home_url()?>">
+					      	<img class="navbar-brand logo logo-normal" src="<?=$logo?>" style="height: <?=$logo_size*14?>px" />
 					      	<img class="navbar-brand logo logo-sticky" src="<?=$logo_sticky?>" style="height: <?=$logo_size_sticky*16?>px" />
 					      	</a>
 			                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#primary-menu" aria-expanded="false">		                     
@@ -69,7 +73,7 @@ if(is_category() || is_archive() || is_single() || is_home()){
 					    </div>
 
 					    <!-- Collect the nav links, forms, and other content for toggling -->
-					    <div class="collapse navbar-collapse pull-right" id="primary-menu">
+					    <div class="collapse navbar-collapse" id="primary-menu">
 					      <?php wp_nav_menu(
 				                            array(
 				                                'theme_location' => 'primary',

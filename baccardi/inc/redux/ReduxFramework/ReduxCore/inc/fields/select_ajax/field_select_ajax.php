@@ -27,7 +27,6 @@ if ( ! class_exists( 'ReduxFramework_select_ajax' ) ) {
          * @since ReduxFramework 1.0.0
          */
         public function render() {
-
             if ( isset( $this->field['multi'] ) &&  $this->field['multi']) { // Dummy proofing  :P
                 $multi = 'multiple';
                 $name = "name='".$this->field["name"]."[]'";
@@ -49,6 +48,10 @@ if ( ! class_exists( 'ReduxFramework_select_ajax' ) ) {
             if ( isset( $this->field['id'] ) &&  $this->field['id']) { // Dummy proofing  :P
                 $id = "id='".$this->field['id']."'";
             }
+            if(!isset($this->field['data']))
+                $this->field['data'] = 'post';
+            if(is_array($this->field['data']))
+                $this->field['data'] = implode("|", $this->field['data']);
             $data = "data-type='".$this->field['data']."'";
             $output = "<select ".$multi." ".$class." ".$id." ".$name." ".$data." style='width:40%'>";
             if(is_array($this->value)){
@@ -56,11 +59,15 @@ if ( ! class_exists( 'ReduxFramework_select_ajax' ) ) {
                     $output .='<option value="'.$post_id.'" selected="selected">'.get_the_title($post_id).'</option>';
                 }
             }
-            $output .="</select>";           
+            $output .="</select>"; 
+            if(get_post_type()) 
+                $output .="<input type='hidden' name='".THEME_OPT."_clear[".$this->field['id']."]'  value='".$this->field['id']."'>";         
             echo $output;
 
            
         } //function
+
+        
 
         private function make_option($id, $value, $group_name = '') {
             if ( is_array( $this->value ) ) {

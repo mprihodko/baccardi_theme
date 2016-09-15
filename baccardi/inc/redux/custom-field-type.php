@@ -43,10 +43,23 @@ if(!function_exists('_bc_redux_load_data')){
 
 		global $wpdb;
 
-		$post_type = $_GET['type'];
-		// if(isset($_GET['post']))
-		// 	$post_type = $_GET['type'];
-		$query = $wpdb->get_results("SELECT `ID`, `post_title` FROM ".$wpdb->posts." WHERE `post_type`='".$post_type."' AND `post_title` LIKE '".$_GET['q']."%' LIMIT 0, 20");
+		$post_type = $_GET['type'];	
+		if(strpos($post_type, "|"))
+			$post_type = explode('|', $post_type);
+
+
+		if(is_array($post_type)){
+			$query_str = '';
+			foreach ($post_type as $k => $type) {
+				if(count($post_type)-1 ==$k)
+					$query_str .= "`post_type`='".$type."'";
+				else
+					$query_str .= "`post_type`='".$type."' OR "; 
+			}
+		}else{
+			$query_str = "`post_type`='".$post_type."'";
+		}
+		$query = $wpdb->get_results("SELECT `ID`, `post_title` FROM ".$wpdb->posts." WHERE `post_status`='publish' AND (".$query_str.") AND  `post_title` LIKE '".$_GET['q']."%'  LIMIT 0, 20");
 		$data = array();
 		if(is_array($query)){
 			foreach ($query as $key => $value) {
@@ -58,5 +71,22 @@ if(!function_exists('_bc_redux_load_data')){
 		echo json_encode($data);
 		die;
 	}
+
+}
+
+if(!function_exists('_bc_redux_save_meta')){
+
+	function _bc_redux_save_meta($post_id){
+
+		if(isset($_POST[THEME_OPT."_clear"])){
+		 	foreach ($_POST[THEME_OPT."_clear"] as $key => $value) {
+		 		if(!isset($_POST[THEME_OPT][$value]))
+		 		 	delete_post_meta($post_id, $value);
+		 	}
+		}
+
+	}
+
+	add_action('save_post', '_bc_redux_save_meta');
 
 }

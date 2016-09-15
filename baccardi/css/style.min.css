@@ -9200,13 +9200,15 @@ body #sidebar li {
   margin: 0;
   padding: 15px 0;
   max-width: 300px;
-  max-height: 200px;
+  max-height: 140px;
   text-transform: uppercase;
   font-size: 35px;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   #bc_header.non-sticky .logo {
     margin-left: 20px;
+    max-width: 200px;
+    height: auto!important;
   }
 }
 #bc_header.sticky {
@@ -9261,7 +9263,7 @@ body #sidebar li {
   font-size: 35px;
   font-weight: bolder;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   #bc_header.sticky .logo {
     margin-left: 20px;
   }
@@ -9269,12 +9271,15 @@ body #sidebar li {
 #bc_header .nav-bottom {
   box-shadow: 0 0 2px;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   #bc_header .nav-bottom .container {
     padding: 0;
     margin: 0;
     width: 100%;
   }
+}
+#bc_header .nav-bottom .container #primary-menu {
+  float: right;
 }
 #bc_header .nav-bottom .navbar {
   margin: 0 auto;
@@ -9284,18 +9289,47 @@ body #sidebar li {
   position: relative;
   font-family: "Lato-Light";
 }
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 768px) {
+  #bc_header .nav-bottom .navbar {
+    display: flex;
+    align-items: stretch;
+    flex-direction: row;
+    justify-content: flex-start;
+    min-height: 80px;
+    max-height: 140px;
+  }
+}
+@media screen and (min-width: 768px) {
+  #bc_header .nav-bottom .navbar #primary-menu {
+    display: flex!important;
+    width: 100%;
+    justify-content: flex-end;
+  }
+  #bc_header .nav-bottom .navbar #primary-menu .menu-main-menu-container {
+    display: flex;
+  }
+}
+@media screen and (min-width: 768px) {
+  #bc_header .nav-bottom .navbar .nav {
+    display: flex;
+  }
+}
+@media screen and (max-width: 767px) {
   #bc_header .nav-bottom .navbar .nav {
     margin-top: 40px;
     font-weight: 600;
   }
 }
 #bc_header .nav-bottom .navbar .nav > li {
-  display: inline-block;
   width: auto;
   position: static;
 }
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 768px) {
+  #bc_header .nav-bottom .navbar .nav > li {
+    display: flex;
+  }
+}
+@media screen and (max-width: 767px) {
   #bc_header .nav-bottom .navbar .nav > li {
     display: block;
     width: 50%;
@@ -9316,8 +9350,11 @@ body #sidebar li {
   font-weight: normal;
   text-decoration: inherit;
   color: #777;
+  left: 5px;
+  top: -1px;
+  position: relative;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   #bc_header .nav-bottom .navbar .nav > li:nth-child(odd) {
     float: left;
   }
@@ -9351,6 +9388,8 @@ body #sidebar li {
   cursor: pointer;
   font-size: 18px;
   text-transform: uppercase;
+  display: flex;
+  align-items: center;
   color: #777;
   text-decoration: none;
   padding: 15px 10px;
@@ -9398,7 +9437,7 @@ body #sidebar li {
 #bc_header .nav-bottom .navbar .nav > li ul > li.menu-item-has-children > a:hover:after {
   color: #ee302f;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   #bc_header .nav-bottom .navbar .nav > li ul > li.menu-item-has-children > a {
     cursor: pointer;
     padding-right: 10px;
@@ -9454,6 +9493,7 @@ body #sidebar li {
     left: 0;
     min-height: 250px;
     z-index: 100;
+    top: 100%;
     right: 0;
   }
   #bc_header .nav-bottom .navbar .nav > li:hover > ul > li {
@@ -9492,7 +9532,7 @@ body #sidebar li {
     background-size: cover !important;
   }
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   #bc_header .nav-bottom .navbar .nav > li:hover {
     background: transparent;
   }
@@ -9503,7 +9543,7 @@ body #sidebar li {
     min-height: 20px;
   }
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   #bc_header .nav-bottom .navbar .nav > li > a {
     font-size: 12px;
     text-transform: uppercase;
@@ -9541,6 +9581,8 @@ body #sidebar li {
   z-index: 1001;
   margin: 20px 0;
   padding: 6.5px 15px;
+  position: absolute;
+  right: 0;
 }
 #bc_header .nav-bottom .navbar .navbar-toggle i {
   color: #fff;
@@ -9554,7 +9596,7 @@ body #sidebar li {
 #bc_header .nav-bottom .navbar .navbar-toggle.collapsed i:before {
   content: "\f0c9";
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   #bc_header .nav-bottom .navbar .navbar-collapse {
     position: absolute;
     width: auto;
@@ -9872,6 +9914,82 @@ body #sidebar li {
 #comments ul .comment-author b,
 #comments ol .comment-author b {
   text-transform: capitalize;
+}
+#comments #comments_pagination {
+  text-align: center;
+  position: relative;
+}
+#comments #comments_pagination span,
+#comments #comments_pagination a {
+  font-size: 20px;
+  line-height: 40px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  display: inline-block;
+  width: 40px;
+}
+#comments #comments_pagination a {
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.7);
+}
+#comments #comments_pagination span {
+  color: #fff;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 7px;
+}
+#comments #comments_pagination a.next {
+  margin: 0;
+  display: inline-block;
+  top: 0;
+  line-height: 50px;
+  position: absolute;
+  right: 0;
+  padding: 0 45px;
+  border-radius: 7px;
+  width: 160px;
+  text-align: center;
+  border: 1px solid rgba(0, 0, 0, 0.7);
+}
+#comments #comments_pagination a.next:hover {
+  -webkit-transition: all, 0.3s, ease-out;
+  -moz-transition: all, 0.3s, ease-out;
+  -ms-transition: all, 0.3s, ease-out;
+  -o-transition: all, 0.3s, ease-out;
+  transition: all, 0.3s, ease-out;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  text-decoration: none;
+}
+#comments #comments_pagination a.prev {
+  position: absolute;
+  left: 0;
+  margin: 0;
+  top: 0;
+  display: inline-block;
+  line-height: 50px;
+  padding: 0;
+  width: 160px;
+  border-radius: 7px;
+  text-align: center;
+  border: 1px solid rgba(0, 0, 0, 0.7);
+}
+#comments #comments_pagination a.prev:hover {
+  -webkit-transition: all, 0.3s, ease-out;
+  -moz-transition: all, 0.3s, ease-out;
+  -ms-transition: all, 0.3s, ease-out;
+  -o-transition: all, 0.3s, ease-out;
+  transition: all, 0.3s, ease-out;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  text-decoration: none;
+}
+@media screen and (max-width: 767px) {
+  #comments #comments_pagination a.prev,
+  #comments #comments_pagination a.next {
+    position: relative;
+    width: 100%;
+    display: block;
+  }
 }
 #respond a {
   font-size: 18px;

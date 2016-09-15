@@ -19,9 +19,7 @@ get_header(); ?>
 
                 <?php get_template_part( 'loop-templates/content', 'page' ); ?>
 
-                <div class="container">
-
-                    <div class="row">
+                
 
                         <div class="col-md-8 col-md-offset-2">
 
@@ -34,9 +32,7 @@ get_header(); ?>
 
                         </div><!-- .col-md-8.col-md-offset-2 -->
 
-                    </div><!-- .row -->
-
-                </div><!-- .container -->
+           
 
             <?php endwhile; // end of the loop. ?>
 

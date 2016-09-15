@@ -11,6 +11,7 @@
 		    -o-transition: all, 0.5s, ease-out;
 		    transition: all, 0.5s, ease-out;
 			display: block;
+			
 	    }
 	    .logo-sticky{
 	    	-webkit-transition: all, 0.5s, ease-out;
@@ -31,13 +32,15 @@
 		    margin: 0;
 		    padding: 15px 0;
 		    max-width: 300px;	
-		    max-height: 200px;			     
+		    max-height: 140px;
 		    text-transform: uppercase;
 		    font-size: @logoHeight;
 		}
-		@media screen and (max-width:768px){
+		@media screen and (max-width: 767px){
 			.logo{
 				margin-left: 20px;
+				max-width: 200px;
+   				height: auto!important;
 			}
 		}
     }
@@ -92,7 +95,7 @@
 		    font-size: @logoHeight;
 		    font-weight: bolder;		
 		}
-		@media screen and (max-width:768px){
+		@media screen and (max-width: 767px){
 			.logo{
 				margin-left: 20px;
 			}
@@ -104,34 +107,58 @@
 		box-shadow: 0 0 2px;
 
 		.container{
-			@media screen and (max-width: 768px){
+			@media screen and (max-width: 767px){
 				padding: 0;
 				margin: 0;
 				width: 100%;
 			}
+			#primary-menu{
+				float: right;
+			}
 		}
-		.navbar{		
+		.navbar{
+			@media screen and (min-width: 768px){
+				display: flex;
+				align-items: stretch;
+			    flex-direction: row;
+			    justify-content: flex-start;
+		  		min-height: 80px;
+		  		max-height: 140px;
+	  		}		
 			margin: 0 auto;
 			padding: 0;		
 			box-sizing: border-box;
 	    	border: none;
 			position: relative;
 			font-family: "Lato-Light";
+		    @media screen and (min-width: 768px){
+				#primary-menu{
+					display: flex!important;
+					width: 100%;
+    				justify-content: flex-end;
+					.menu-main-menu-container{
+						display: flex;
+					}
 
+				}
+			}
 			.nav {
-
-				@media screen and (max-width: 768px){
+				@media screen and (min-width: 768px){
+					display: flex;
+				}
+				@media screen and (max-width: 767px){
 					margin-top: @menuItemPaddingY+10px;
 					font-weight: 600;
 				}
 
 				& > li{
-
-					display: inline-block;
+					@media screen and (min-width: 768px){
+						display: flex;
+					}
 					width: auto;
 					position: static;
 
-					@media screen and (max-width: 768px){
+					@media screen and (max-width: 767px){
 						display: block;
 						width: 50%;
 						position: relative;		
@@ -152,10 +179,13 @@
 							    font-weight: normal;
 							    text-decoration: inherit;
 							    color: @defaultText;
+							    left: 5px;
+    							top: -1px;
+    							position: relative;
 							}
 						}
 					}
-					@media screen and (max-width: 768px){
+					@media screen and (max-width: 767px){
 
 						&:nth-child(odd){
 							float: left;
@@ -196,7 +226,8 @@
 						cursor: pointer;
 						font-size: 18px;
 						text-transform: uppercase;
-						// font-weight: bold;
+						display: flex;
+						align-items: center;
 					    color: @defaultText;
 					    text-decoration: none;
 					    padding: 15px  @menuItemPaddingX;
@@ -252,7 +283,7 @@
 							}
 						}
 
-						@media screen and (max-width: 768px){
+						@media screen and (max-width: 767px){
 
 							& > li.menu-item-has-children{
 								& > a{
@@ -320,6 +351,7 @@
 							    left: 0;
 							    min-height: 250px;
 							    z-index: 100;
+							    top: 100%;
 							    right: 0;	
 							    & > li{
 							    	display: block;
@@ -361,7 +393,7 @@
 							
 							}
 						}
-						@media screen and (max-width: 768px){
+						@media screen and (max-width: 767px){
 							background: transparent;
 							.nav-post-thumb{
 								display: none;
@@ -375,7 +407,7 @@
 					}
 
 
-					@media screen and (max-width: 768px){
+					@media screen and (max-width: 767px){
 
 						& > a{
 
@@ -426,6 +458,8 @@
 				z-index: 1001;
 				margin: @yPadding 0;
 				padding: 6.5px @xPadding;
+				    position: absolute;
+				    right: 0;
 				i{
 					color: #fff;
 				}
@@ -448,7 +482,7 @@
 			}
 			
 			
-			@media screen and (max-width: 768px){
+			@media screen and (max-width: 767px){
 				.navbar-collapse{
 					position: absolute;
 				    width: auto;
