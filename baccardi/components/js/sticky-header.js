@@ -17,4 +17,14 @@ jQuery(document).ready(function($){
 	});
 
 
+		
+ 	$('.your-class').slick({
+    	autoplay: 'Autoplay',
+    	arrows: true,
+    	adaptiveHeight: 400,
+    	autoplaySpeed: 6000
+  	});
+  	$('.your-class').show();
+   
+
 });

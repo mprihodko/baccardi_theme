@@ -115,15 +115,7 @@ if ( ! class_exists( 'Redux_Framework_Lwp_config' ) ) {
 		            'max'	=> 10,
 		            'default'=>5,
 		            'title' => 'Site Header Logo Size'
-				),
-				array(
-					'id'	=>'test_select',
-					'type'	=>'select_ajax',
-					'multi'	=> true,
-					'class'	=> 'test',
-					'data'	=> array('post', 'page'),
-					'title'	=> 'Related Posts'
-					)
+				)				
 			);
 
 			/* Set sections */

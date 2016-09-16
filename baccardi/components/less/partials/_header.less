@@ -497,4 +497,62 @@
 		}
 
 	}
+	
 }
+
+.slick-initialized{
+
+		.slider_item_home{
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
+		}
+		button.slick-prev{
+			color: #fff;
+			z-index: 100;
+			left: -75px;
+			width: 50px;
+			height: 50px;
+			opacity: 0;
+			background: @blackOverlay;
+			&:before{
+				position: relative;
+    			top: 2px;
+			}
+		}
+
+		button.slick-next{
+			right: -75px;
+			width: 50px;
+			height: 50px;
+			background: @blackOverlay;
+			color: #fff;
+			z-index: 100;
+			opacity: 0;			
+			&:before{
+				position: relative;
+    			top: 2px;
+			}
+		}
+		&:hover{
+			cursor: pointer;
+			button.slick-prev{
+				-webkit-transition: all, 0.5s, ease-out;
+			    -moz-transition: all, 0.5s, ease-out;
+			    -ms-transition: all, 0.5s, ease-out;
+			    -o-transition: all, 0.5s, ease-out;
+			    transition: all, 0.5s, ease-out;
+				left: 25px;
+				opacity: 1;
+			}
+			button.slick-next{
+				-webkit-transition: all, 0.5s, ease-out;
+			    -moz-transition: all, 0.5s, ease-out;
+			    -ms-transition: all, 0.5s, ease-out;
+			    -o-transition: all, 0.5s, ease-out;
+			    transition: all, 0.5s, ease-out;
+				opacity: 1;
+				right: 25px;
+			}
+		}
+	}

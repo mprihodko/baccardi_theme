@@ -94,12 +94,27 @@ if(is_category() || is_archive() || is_single() || is_home()){
 	    </div>
 	   
 	</header>
-	<div class="wrapper" id="wrapper-index">		
+	<div class="wrapper" id="wrapper-index">
+		
+		<?php 
+		global $post;
+		$slides = redux_post_meta(THEME_OPT, $post->ID, 'opt-slides');
+		
+		if(is_array($slides) && !empty($slides)): ?>
+			<div class="your-class" style="display: none;">
+				<?php foreach ($slides as $slide): ?>
+					<?php if(isset($slide['image']) && !empty($slide['image'])): ?>
+			 			<div class="slider_item_home" style="max-height:700px; min-height:600px; width:100%; background-image:url(<?=$slide['image']?>);""></div>
+			 		<?php endif; ?>
+			  	<?php endforeach; ?>
+			</div>
+		<?php endif; ?>
+
 	    <?php get_template_part( 'loop-templates/single-title' ); ?>  
 		<div id="content" class="container-fluid">
 
 			<div class="container">
 		
 		        <div class="row">
-		        
+		        	
 		        	<div id="primary" class="<?php if ( is_active_sidebar( 'sidebar-bacardi' ) && $sidebar_opt) : ?>col-md-9 col-sm-8 col-xs-12<?php else : ?>col-md-12 col-sm-12 col-xs-12<?php endif; ?> content-area">

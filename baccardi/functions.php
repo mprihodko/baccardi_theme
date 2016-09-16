@@ -10,7 +10,9 @@
  * @subpackage Bacardi theme
  * @since Bacardi theme 1.0
  */
-
+ini_set('error_reporting', E_ALL);
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
 if(!defined('THEME_OPT')){
 	define('THEME_OPT', 'bacardi');
 }
@@ -35,9 +37,11 @@ function bc_load_scripts(){
 	wp_deregister_script("select2-js");
 
 	wp_register_script('bc-bootstrap', get_template_directory_uri().'/js/lib/bootstrap.min.js', array('jquery'), time(), true);
-	wp_register_script('bc-theme-script', get_template_directory_uri().'/js/theme_script.js', array('jquery'), time(), true);
+	wp_register_script('bc-slick-slider', get_template_directory_uri().'/js/lib/slick.min.js', array('jquery'), time(), true);
+	wp_register_script('bc-theme-script', get_template_directory_uri().'/js/theme_script.js', array('jquery', 'bc-bootstrap', 'bc-slick-slider'), time(), true);
 	wp_enqueue_script('bc-theme-script');
 	wp_enqueue_script('bc-bootstrap');
+	wp_enqueue_script('bc-slick-slider');
 	
 	wp_enqueue_style('style', get_template_directory_uri().'/css/style.min.css', array(), time(), false);
 

@@ -11,10 +11,10 @@ if(isset($bacardi['enable_page_title']) && !empty($bacardi['enable_page_title'])
 	$show_title=$bacardi['enable_page_title'];
 }elseif(is_single()){
 	$show_title=redux_post_meta( THEME_OPT, get_the_ID(), 'enable_page_title');	
-	// var_dump($show_title);
 }else{
 	$show_title=true;
 }
+
 if(isset($bacardi['enable_overlay']['rgba']) && !empty($bacardi['enable_overlay']['rgba'])){
 	echo "<style type='text/css'>
 			.entry-header:after{ background-color: ".$bacardi['enable_overlay']['rgba']." }
@@ -23,11 +23,18 @@ if(isset($bacardi['enable_overlay']['rgba']) && !empty($bacardi['enable_overlay'
 	echo "<style type='text/css'>
 			.entry-header:after{ background-color: ".$overlay['rgba']." }
 		</style>";
+}elseif(is_tax() || is_category() && $overlay['rgba'] = get_term_meta(get_queried_object()->term_id, 'taxonomy_overlay', 1)){
+	echo "<style type='text/css'>
+			.entry-header:after{ background-color: ".$overlay['rgba']." }
+		</style>";	
 }
+
 if(isset($bacardi['page_title_image']['url']) && !empty($bacardi['page_title_image'])){
 	$background_image = $bacardi['page_title_image'];
 }elseif(is_single()){
 	$background_image = redux_post_meta( THEME_OPT, get_the_ID(), 'page_title_image');	
+}elseif(is_tax() || is_category()){
+	$background_image['url'] = get_term_meta(get_queried_object()->term_id, 'taxonomy_thumb', 1);
 }else{
 	$background_image = '';
 }
