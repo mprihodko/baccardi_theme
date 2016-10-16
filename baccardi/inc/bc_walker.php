@@ -8,8 +8,7 @@ class bc_walker extends Walker_Nav_Menu {
     function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ){
         $args = (object) $args;    
         global $wp_query;
-
-
+        if(!$args->menu) return;
         $indent = ( $depth ) ? str_repeat( "", $depth ) : '';
 
         $class_names = $value = '';

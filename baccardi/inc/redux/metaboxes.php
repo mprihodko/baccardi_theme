@@ -40,15 +40,7 @@ if ( !function_exists( "redux_add_metaboxes" ) ):
 				'multi'	=> true,
 				'title'	=> 'Related Posts',
 				'default' => ''
-			),
-			// array(
-			//     'id'          => 'opt-slides',
-			//     'type'        => 'slides',
-			//     'title'       => __('Slides Options', 'redux-framework-demo'),
-			//     'subtitle'    => __('Unlimited slides with drag and drop sortings.', 'redux-framework-demo'),
-			//     'desc'        => __('This field will store all slides values into a multidimensional array to use into a foreach loop.', 'redux-framework-demo')
-			    
-			// )
+			),			
 		)
 	);
 
@@ -86,6 +78,9 @@ if ( !function_exists( "redux_add_metaboxes" ) ):
 		)
 	);
 
+
+
+
 	$metaboxes[] = array(
 		'id'            => 'page_options',
 		'title'         => __( 'Page options', THEME_OPT ),
@@ -116,8 +111,7 @@ if ( !function_exists( "redux_add_metaboxes" ) ):
 		'priority'      => 'high', 
 		'sidebar'       => 1,  
 		'sections'      => $page_title_options,
-	);
-
+	);	
 
 	return $metaboxes;
   }

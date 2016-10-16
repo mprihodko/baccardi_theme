@@ -12,8 +12,8 @@
 global $bacardi;
 
 $logo = (isset($bacardi['header_logo']['url'])? $bacardi['header_logo']['url'] : '');
-$logo_sticky = (isset($bacardi['header_logo_sticky']['url'])? $bacardi['header_logo_sticky']['url'] : 5);
-$logo_size = (isset($bacardi['header_logo_size'])? $bacardi['header_logo_size'] : '');
+$logo_sticky = (isset($bacardi['header_logo_sticky']['url'])? $bacardi['header_logo_sticky']['url'] : '');
+$logo_size = (isset($bacardi['header_logo_size'])? $bacardi['header_logo_size'] : 5);
 $logo_size_sticky = (isset($bacardi['header_logo_sticky_size'])? $bacardi['header_logo_sticky_size'] : 5);
 $sidebar_opt = $bacardi['enable_sidebar'];
 if(is_category() || is_archive() || is_single() || is_home()){
@@ -64,8 +64,16 @@ if(is_category() || is_archive() || is_single() || is_home()){
 				    <!-- Brand and toggle get grouped for better mobile display -->
 				    	<div class="navbar-header">
 				    	<a href="<?=home_url()?>">
+				    	<?php if($logo): ?>
 					      	<img class="navbar-brand logo logo-normal" src="<?=$logo?>" style="height: <?=$logo_size*14?>px" />
+					    <?php else: ?>
+					    	<span class="navbar-brand logo logo-normal" style="line-height: <?=$logo_size*14?>px" ><?php echo get_bloginfo('name'); ?></span>
+					    <?php endif; ?>
+					    <?php if($logo_sticky): ?>
 					      	<img class="navbar-brand logo logo-sticky" src="<?=$logo_sticky?>" style="height: <?=$logo_size_sticky*16?>px" />
+					    <?php else: ?>
+					    	<span class="navbar-brand logo logo-sticky" style="line-height: <?=$logo_size_sticky*16?>px"><?php echo get_bloginfo('name'); ?></span>
+					    <?php endif; ?>
 					      	</a>
 			                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#primary-menu" aria-expanded="false">		                     
 			                    <i class="fa fa-times" aria-hidden="true"></i>

@@ -498,12 +498,46 @@ jQuery(document).ready(function($){
 
 
 		
- 	$('.your-class').slick({
-    	autoplay: 'Autoplay',
-    	arrows: true,
-    	adaptiveHeight: 400,
-    	autoplaySpeed: 6000
-  	});
+ 	$('.slick').slick({
+	  dots: true,
+	  infinite: true,
+	  speed: 500,
+	  fade: true,
+	  autoplay: true,
+	  autoplaySpeed: 2000,
+	  cssEase: 'linear',
+	  click: false,
+	  lazyLoaded: 'image',
+	  pauseOnHover: true,
+	  responsive: [
+
+	  	{
+		    breakpoint: 992,
+		      settings: {		        
+		        infinite: true,
+		        dots: true,
+		        touchMove: false
+		      }
+		    },
+		    {
+		      breakpoint: 768,
+		      settings: {		     
+		        dots: false,
+		        arrows: false,	
+		        touchMove: true,
+		      }
+		    },
+		    {
+		      breakpoint: 544,
+		      settings: {
+		      	arrows: false,	
+		      	touchMove: true,	         
+		        dots: false
+		      }
+		    }
+
+	  ]
+	});
   	$('.your-class').show();
    
 

@@ -9549,6 +9549,7 @@ body #sidebar li {
 @media screen and (min-width: 768px) {
   #bc_header .nav-bottom .navbar .nav {
     display: flex;
+    height: 100%;
   }
 }
 @media screen and (max-width: 767px) {
